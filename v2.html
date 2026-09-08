@@ -201,9 +201,9 @@
   .split{display:flex; gap:48px; align-items:flex-start}
   .split-main{flex:1 1 auto; min-width:0}
   .split-side{flex:0 0 316px; border-left:1px solid var(--line); padding-left:32px}
-  .split.tight{gap:26px}
-  .split.tight .split-side{flex:0 0 340px; padding-left:24px}
-  .split.tight .split-main{flex:0 1 auto}
+  .split.tight{gap:38px}
+  .split.tight .split-side{flex:1 1 400px; padding-left:30px}
+  .split.tight .split-main{flex:1 1 420px; min-width:0}
   .side-head{font-family:"Space Mono",monospace; font-size:10.5px; letter-spacing:.1em;
     text-transform:uppercase; color:var(--muted); margin:0 0 16px}
   .side-p{font-size:15.5px; line-height:1.62; font-weight:300; margin:0; text-wrap:pretty}
@@ -320,16 +320,18 @@
     letter-spacing:-.01em}
   .cite{font-family:"Space Mono",monospace; font-size:10.5px; line-height:1.8;
     color:var(--muted); margin:0}
-  .peek{display:inline-flex; align-items:center; gap:7px; color:var(--accent);
+  .peek{display:inline-flex; align-items:center; gap:8px; color:var(--accent);
     font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.06em;
-    text-transform:uppercase; margin:12px 0 0; font-weight:700}
+    text-transform:uppercase; margin:14px 0 0; font-weight:700;
+    border:1px solid var(--accent); border-radius:20px; padding:9px 16px;
+    transition:background .18s ease, color .18s ease}
+  .paper:hover .peek{background:var(--accent); color:var(--bg)}
   .peek svg{transition:transform .25s ease}
   .reveal{display:grid; grid-template-rows:0fr;
     transition:grid-template-rows .32s cubic-bezier(.2,.7,.3,1)}
   .reveal > div{overflow:hidden; min-height:0}
-  .paper:hover .reveal, .paper:focus-visible .reveal,
   .paper[aria-expanded="true"] .reveal{grid-template-rows:1fr}
-  .paper:hover .peek svg, .paper[aria-expanded="true"] .peek svg{transform:rotate(180deg)}
+  .paper[aria-expanded="true"] .peek svg{transform:rotate(180deg)}
   .abs{margin:14px 0 0; font-size:16px; line-height:1.6; font-weight:300}
   .figure-note{margin:16px 0 4px; padding:14px 16px; border:1px solid var(--line);
     border-radius:8px; background:var(--surface)}
@@ -359,6 +361,17 @@
   .tl-row.right .tl-card{border-left:1px solid var(--line); border-right:3px solid var(--c)}
   .tl-when{font-family:"Space Mono",monospace; font-size:10.5px; letter-spacing:.1em;
     color:var(--c); margin:0 0 6px}
+  .tl-row.photo{margin-top:-12px}
+  .tl-row.photo::after{display:none}
+  .tl-photo{width:calc(50% - 34px); border-radius:10px; overflow:hidden;
+    border:1px solid var(--line); background:var(--surface)}
+  .tl-photo img{display:block; width:100%; height:auto}
+  .tl-photo figcaption{font-family:"Space Mono",monospace; font-size:10px;
+    letter-spacing:.05em; color:var(--muted); padding:10px 14px; margin:0}
+  .tl-photo.placeholder{border-style:dashed; min-height:150px; display:flex;
+    align-items:center; justify-content:center; text-align:center;
+    font-family:"Space Mono",monospace; font-size:10.5px; line-height:1.7;
+    color:var(--faint); padding:24px; letter-spacing:.05em}
   .tl-card strong{display:block; font-weight:600; font-size:17.5px; letter-spacing:-.01em}
   .tl-card span{display:block; color:var(--muted); font-size:15.5px; line-height:1.5;
     margin-top:3px}
@@ -392,6 +405,7 @@
     .tl::before{left:6px}
     .tl-row,.tl-row.right{justify-content:flex-start}
     .tl-row::after{left:6px}
+    .tl-photo{width:100%; margin-left:30px}
     .tl-card{width:100%; margin-left:30px; border-left:3px solid var(--c);
       border-right:1px solid var(--line)}
     .tl-row.right .tl-card{border-left:3px solid var(--c); border-right:1px solid var(--line)}
@@ -681,7 +695,7 @@
 <section id="research" class="wrap">
   <p class="sec-kicker">02 &ndash; Research</p>
   <h2 class="sec-head">Two peer-reviewed papers</h2>
-  <p class="sec-note">On both I built the models, worked out the analytical rationale, and wrote most of the paper. Hover or tap either one for the abstract.</p>
+  <p class="sec-note">On both I built the models, worked out the analytical rationale, and wrote most of the paper.</p>
 
   <div class="paper" tabindex="0" role="button" aria-expanded="false">
     <h3>Brain Tumor Classification Using Deep Learning Techniques</h3>
@@ -738,6 +752,8 @@
       <span>Graduate Diploma in Business Analytics</span>
     </div></div>
 
+    <div class="tl-row right photo"><figure class="tl-photo placeholder">[ PHOTO ]<br>Melbourne Business School<br><span style="opacity:.7">drop a file in and tell me</span></figure></div>
+
     <div class="tl-row right" style="--c:var(--c-agl)"><div class="tl-card">
       <p class="tl-when">2024</p>
       <strong>AGL Energy</strong>
@@ -755,6 +771,8 @@
       <strong>NMIMS University, Mumbai</strong>
       <span>B.Tech, Computer Engineering</span>
     </div></div>
+
+    <div class="tl-row right photo"><figure class="tl-photo placeholder">[ PHOTO ]<br>Stanford or NMIMS<br><span style="opacity:.7">drop a file in and tell me</span></figure></div>
   </div>
 </section>
 
@@ -993,6 +1011,11 @@
         el.setAttribute('aria-expanded', el.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
       }
       el.addEventListener('click', function (e) { if (!e.target.closest('a')) toggle(); });
+      // keep the button label honest about what pressing it does
+      new MutationObserver(function () {
+        var open = el.getAttribute('aria-expanded') === 'true';
+        el.querySelector('.peek').lastChild.textContent = open ? ' Hide abstract' : ' Abstract';
+      }).observe(el, { attributes: true, attributeFilter: ['aria-expanded'] });
       el.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
       });
