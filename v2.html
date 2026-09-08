@@ -7,6 +7,7 @@
 <meta name="description" content="Shambhavi Gupta, who goes by Shaam. Product Manager, Platform and AI. Melbourne, VIC.">
 <script>
   // Applied before first paint so a returning dark-mode viewer never sees a light flash.
+  document.documentElement.classList.add('js');
   try {
     var t = localStorage.getItem('theme');
     if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
@@ -21,12 +22,16 @@
     --ink:#1a1815; --muted:#6b6259; --faint:#a2988a;
     --accent:#b4451f; --accent-soft:#f2e9e2; --teal:#0e6e78; --teal-soft:#f0f6f6;
     --dot:#ded6c9; --shadow:0 1px 2px rgba(0,0,0,.04);
+    --c-optevo:#b4451f; --c-mbs:#0e6e78; --c-agl:#4f6a24;
+    --c-stanford:#8a3f63; --c-nmims:#3a558f;
   }
   :root[data-theme="dark"]{
     --bg:#15130f; --surface:#1e1b16; --line:#332e26; --line-soft:#26221c;
     --ink:#f0ebe2; --muted:#a49a8c; --faint:#7d7466;
     --accent:#e8875c; --accent-soft:#2b211a; --teal:#5fb8c4; --teal-soft:#16211f;
     --dot:#2a251e; --shadow:none;
+    --c-optevo:#e8875c; --c-mbs:#5fb8c4; --c-agl:#9cbd6a;
+    --c-stanford:#d18eb0; --c-nmims:#8fa8e2;
   }
 
   *{box-sizing:border-box}
@@ -71,7 +76,7 @@
   :root[data-theme="dark"] .icon-moon{display:block}
 
   /* ---------- hero ---------- */
-  .hero{position:relative; overflow:hidden; padding:44px 0 76px}
+  .hero{position:relative; overflow:hidden; padding:40px 0 60px}
   .hero-dots{
     position:absolute; inset:0; opacity:.55; pointer-events:none;
     background-image:radial-gradient(var(--dot) 1px, transparent 1px);
@@ -104,7 +109,7 @@
   .cta-secondary{border-color:var(--line); color:var(--ink); font-weight:400}
   .cta-secondary:hover{border-color:var(--ink)}
 
-  .hero-portrait{position:relative; flex:0 0 430px; width:430px; height:450px; margin-top:4px}
+  .hero-portrait{position:relative; flex:0 0 430px; width:430px; height:450px; margin-top:82px}
   .portrait-frame{position:absolute; left:100px; top:110px; width:230px; height:230px}
   .portrait-frame img{
     width:230px; height:230px; border-radius:50%; object-fit:cover; display:block;
@@ -127,26 +132,28 @@
   .tag.t4{left:0; bottom:4px; animation-delay:2.1s; color:var(--teal)}
   .tag.t4 span{color:var(--teal); opacity:.72}
   @keyframes settle{to{opacity:1; transform:translateY(0)}}
-  @keyframes draw{to{stroke-dashoffset:0}}
+  .js .reveal-up{opacity:0; transform:translateY(26px);
+    transition:opacity .65s ease, transform .65s cubic-bezier(.2,.7,.3,1)}
+  .js .reveal-up.in{opacity:1; transform:none}
+  .js .tl-row{opacity:0; transform:translateY(20px);
+    transition:opacity .55s ease, transform .55s cubic-bezier(.2,.7,.3,1)}
+  .js .tl-row.in{opacity:1; transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .js .reveal-up,.js .tl-row{opacity:1 !important; transform:none !important}
+  }
   @keyframes lnFade{to{opacity:1}}
-  .name-scribble{position:absolute; left:-46px; top:118px; width:470px; height:230px;
-    pointer-events:none; z-index:0; opacity:.85}
-  .name-scribble path{stroke-dasharray:1500; stroke-dashoffset:1500;
-    animation:draw 3s ease-out .35s forwards}
-  .hero-text > *{position:relative; z-index:1}
   .tag-lines path,.tag-lines circle{opacity:0; animation:lnFade .5s ease forwards}
   .tag-lines .l1{animation-delay:.55s} .tag-lines .l2{animation-delay:1.05s}
   .tag-lines .l3{animation-delay:1.55s} .tag-lines .l4{animation-delay:2.05s}
   .tag-lines{position:absolute; inset:0; width:430px; height:450px; pointer-events:none}
   .scroll-cue{
     font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.12em;
-    text-transform:uppercase; color:var(--ink); margin:56px 0 0;
+    text-transform:uppercase; color:var(--ink); margin:40px 0 0;
   }
 
   /* ---------- sections ---------- */
   /* .wrap also sets padding, and beats a bare `section` selector, so scope this. */
-  section.wrap{padding-top:92px; padding-bottom:88px}
-  section + section{border-top:1px solid var(--line)}
+  section.wrap{padding-top:92px; padding-bottom:60px; border-top:1px solid var(--line)}
   section.wrap:last-of-type{padding-bottom:44px}
   .sec-kicker{
     font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.16em;
@@ -341,15 +348,17 @@
   .tl::before{content:""; position:absolute; left:50%; top:0; bottom:0; width:1px;
     background:var(--line); transform:translateX(-.5px)}
   .tl-row{position:relative; display:flex; margin-bottom:30px}
-  .tl-row::after{content:""; position:absolute; left:50%; top:22px; width:11px;
-    height:11px; border-radius:50%; background:var(--bg);
-    border:2px solid var(--accent); transform:translate(-50%,-50%)}
+  .tl-row{--c:var(--accent)}
+  .tl-row::after{content:""; position:absolute; left:50%; top:24px; width:13px;
+    height:13px; border-radius:50%; background:var(--c);
+    box-shadow:0 0 0 4px var(--bg); transform:translate(-50%,-50%); z-index:1}
   .tl-row.right{justify-content:flex-end}
   .tl-card{width:calc(50% - 34px); background:var(--surface);
-    border:1px solid var(--line); border-radius:10px; padding:18px 20px;
-    box-shadow:var(--shadow)}
+    border:1px solid var(--line); border-left:3px solid var(--c); border-radius:10px;
+    padding:18px 20px; box-shadow:var(--shadow)}
+  .tl-row.right .tl-card{border-left:1px solid var(--line); border-right:3px solid var(--c)}
   .tl-when{font-family:"Space Mono",monospace; font-size:10.5px; letter-spacing:.1em;
-    color:var(--accent); margin:0 0 6px}
+    color:var(--c); margin:0 0 6px}
   .tl-card strong{display:block; font-weight:600; font-size:17.5px; letter-spacing:-.01em}
   .tl-card span{display:block; color:var(--muted); font-size:15.5px; line-height:1.5;
     margin-top:3px}
@@ -383,8 +392,9 @@
     .tl::before{left:6px}
     .tl-row,.tl-row.right{justify-content:flex-start}
     .tl-row::after{left:6px}
-    .tl-card{width:100%; margin-left:30px}
-    .name-scribble{display:none}
+    .tl-card{width:100%; margin-left:30px; border-left:3px solid var(--c);
+      border-right:1px solid var(--line)}
+    .tl-row.right .tl-card{border-left:3px solid var(--c); border-right:1px solid var(--line)}
     .gov{flex-direction:column}
     .gov-col{flex:1 1 auto; width:100%; padding-right:0; margin-bottom:22px}
     .gov-line{flex:0 0 2px; width:100%; height:2px; margin:0 0 30px;
@@ -424,10 +434,6 @@
   <div class="hero-dots"></div>
   <div class="wrap hero-in">
     <div class="hero-text">
-      <svg class="name-scribble" viewBox="0 0 430 250" aria-hidden="true">
-        <path d="M-10 150 C 40 60, 70 190, 120 120 S 175 40, 165 130 S 120 210, 205 175 S 250 90, 268 152 S 300 190, 330 150 L 430 150"
-              fill="none" stroke="var(--dot)" stroke-width="2" stroke-linecap="round"></path>
-      </svg>
       <p class="eyebrow">Product Manager &middot; Platform and AI &middot; Melbourne</p>
       <h1>Shambhavi<br>Gupta</h1>
       <p class="goesby">I go by Shaam.</p>
@@ -479,6 +485,7 @@
     </div>
     <h2 class="proj">An AI that drafts your tasks but is never allowed to create them</h2>
     <p class="myrole">My role: Product Manager, Platform and AI. Product, design, backend, AI, two frontend engineers and two QA, across three timezones.</p>
+    <div class="reveal-up">
     <div class="pa">
       <div class="pa-col">
         <p class="pa-label">The problem</p>
@@ -535,6 +542,7 @@
       <span class="chip chip-t">Jira</span>
       <span class="chip chip-t">Figma</span>
     </div>
+    </div>
   </article>
 
   <!-- ---------- 02 AGL ---------- -->
@@ -545,6 +553,7 @@
     </div>
     <h2 class="proj">Forecasting what a $1.1&nbsp;billion rebate would do to the debt book</h2>
     <p class="myrole">My role: Commercial Analyst, Credit and Affordability. Team of four, five weeks.</p>
+    <div class="reveal-up">
     <div class="pa">
       <div class="pa-col">
         <p class="pa-label">The problem</p>
@@ -604,6 +613,7 @@
       <span class="chip chip-t">SQL</span>
       <span class="chip chip-t">Excel</span>
     </div>
+    </div>
   </article>
 
   <!-- ---------- 03 Comp Ag ---------- -->
@@ -614,6 +624,7 @@
     </div>
     <h2 class="proj">One assumption, and the whole thing changes shape</h2>
     <p class="myrole">My role: shaped the solution, ran the timeline, designed the marketplace flow, wrote the report. The hardware build sat with my teammates.</p>
+    <div class="reveal-up">
     <div class="pa">
       <div class="pa-col">
         <p class="pa-label">The problem</p>
@@ -662,6 +673,7 @@
       <span class="chip chip-t">Arduino / Node MCU</span>
       <span class="chip chip-t">Heroku</span>
     </div>
+    </div>
   </article>
 </section>
 
@@ -702,7 +714,7 @@
     <p class="cite">Mahajan, Gupta &amp; Bhanushali &middot; 2023<br>IJRASET, 11(3), pp. 1419&ndash;1424 &middot; <a href="https://doi.org/10.22214/ijraset.2023.49688">doi:10.22214/ijraset.2023.49688</a></p>
     <p class="peek"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg> Abstract</p>
     <div class="reveal"><div>
-      <p class="abs">A real-time human pose detection and recognition system built on MediaPipe, identifying body poses from both live and recorded video.</p>
+      <p class="abs">A real-time human pose detection and recognition system built on MediaPipe, identifying body poses from both live and recorded video streams. The paper walks through the pipeline end to end: extracting skeletal landmarks frame by frame, deriving joint angles from those landmarks, and classifying the resulting posture without the depth camera or wearable sensors most comparable systems rely on. We looked at where it holds up and where it does not, including partial occlusion, unusual camera angles and low frame rates, and at the applications that follow from running on an ordinary webcam: physiotherapy and rehabilitation feedback, sports and form analysis, gesture interfaces and fall detection.</p>
     </div></div>
   </div>
 </section>
@@ -714,37 +726,31 @@
   <p class="sec-note">Most recent first.</p>
 
   <div class="tl">
-    <div class="tl-row"><div class="tl-card">
-      <p class="tl-when">2026 &ndash; now</p>
-      <strong>Melbourne Business School</strong>
-      <span>Master of Business Analytics, University of Melbourne</span>
-    </div></div>
-
-    <div class="tl-row right"><div class="tl-card">
+    <div class="tl-row" style="--c:var(--c-optevo)"><div class="tl-card">
       <p class="tl-when">2025 &ndash; now</p>
       <strong>Optevo</strong>
       <span>Product Manager - Platform and AI</span>
     </div></div>
 
-    <div class="tl-row right"><div class="tl-card">
+    <div class="tl-row" style="--c:var(--c-mbs)"><div class="tl-card">
       <p class="tl-when">2025</p>
       <strong>Melbourne Business School</strong>
       <span>Graduate Diploma in Business Analytics</span>
     </div></div>
 
-    <div class="tl-row"><div class="tl-card">
+    <div class="tl-row right" style="--c:var(--c-agl)"><div class="tl-card">
       <p class="tl-when">2024</p>
       <strong>AGL Energy</strong>
       <span>Commercial Analyst, Credit and Affordability</span>
     </div></div>
 
-    <div class="tl-row right"><div class="tl-card">
+    <div class="tl-row" style="--c:var(--c-stanford)"><div class="tl-card">
       <p class="tl-when">2023</p>
       <strong>Stanford University</strong>
       <span>Summer Graduate Session, Sustainability Design Thinking and Technology Entrepreneurship</span>
     </div></div>
 
-    <div class="tl-row right"><div class="tl-card">
+    <div class="tl-row" style="--c:var(--c-nmims)"><div class="tl-card">
       <p class="tl-when">2019 &ndash; 2023</p>
       <strong>NMIMS University, Mumbai</strong>
       <span>B.Tech, Computer Engineering</span>
@@ -955,6 +961,29 @@
   swPhone.addEventListener('click', function () { setPhone(true); });
   swNoPhone.addEventListener('click', function () { setPhone(false); });
   setPhone(false);
+
+  /* ---------------- reveal on scroll ---------------- */
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal-up, .tl-row, .paper');
+
+  function reveal(el) {
+    el.classList.add('in');
+    // papers open themselves as you reach them; hover and tap still toggle
+    if (el.classList.contains('paper')) el.setAttribute('aria-expanded', 'true');
+  }
+
+  if (!('IntersectionObserver' in window) || reduce) {
+    for (var r = 0; r < targets.length; r++) reveal(targets[r]);
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        reveal(e.target);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    for (var t = 0; t < targets.length; t++) io.observe(targets[t]);
+  }
 
   /* ---------------- papers ---------------- */
   var papers = document.querySelectorAll('.paper');
