@@ -1010,6 +1010,30 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     for (var t = 0; t < targets.length; t++) io.observe(targets[t]);
+
+    // Belt and braces. Some browsers suspend IntersectionObserver while a tab is
+    // not painting, and the failure mode here is a visitor seeing headings with no
+    // content under them. This reveals anything already on screen, costs nothing
+    // when the observer is doing its job, and keeps the animation intact.
+    var sweep = function () {
+      var left = false;
+      for (var i = 0; i < targets.length; i++) {
+        var el = targets[i];
+        if (el.classList.contains('in')) continue;
+        var r = el.getBoundingClientRect();
+        if (r.top < innerHeight * 0.92 && r.bottom > 0) { reveal(el); io.unobserve(el); }
+        else left = true;
+      }
+      if (!left) {
+        removeEventListener('scroll', sweep);
+        removeEventListener('resize', sweep);
+        document.removeEventListener('visibilitychange', sweep);
+      }
+    };
+    addEventListener('scroll', sweep, { passive: true });
+    addEventListener('resize', sweep);
+    document.addEventListener('visibilitychange', sweep);
+    sweep();
   }
 
   /* ---------------- papers ---------------- */
