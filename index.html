@@ -96,11 +96,42 @@
   figcaption{color:var(--muted); font-size:13px; margin-top:10px; text-align:center}
   .diagram-scroll{overflow-x:auto}
 
-  .paper{padding:18px 0; border-bottom:1px solid var(--line)}
+  .paper{
+    padding:18px 0; border-bottom:1px solid var(--line); cursor:pointer;
+    outline-offset:4px; border-radius:2px;
+  }
   .paper:last-child{border-bottom:none}
   .paper h3{margin:0 0 4px; font-size:17px; line-height:1.35; letter-spacing:-.01em}
-  .paper .cite{color:var(--muted); font-size:14px; margin:0 0 8px}
-  .paper p.abs{margin:0; font-size:15px}
+  .paper .cite{color:var(--muted); font-size:14px; margin:0 0 2px}
+  .paper .peek{
+    display:flex; align-items:center; gap:6px; color:var(--accent);
+    font-size:12.5px; font-weight:500; margin-top:9px;
+    transition:opacity .2s ease; letter-spacing:.01em;
+  }
+  .paper .peek svg{transition:transform .25s ease}
+  .reveal{
+    display:grid; grid-template-rows:0fr;
+    transition:grid-template-rows .32s cubic-bezier(.2,.7,.3,1);
+  }
+  .reveal > div{overflow:hidden; min-height:0}
+  .paper:hover .reveal,
+  .paper:focus-visible .reveal,
+  .paper[aria-expanded="true"] .reveal{grid-template-rows:1fr}
+  .paper:hover .peek svg,
+  .paper[aria-expanded="true"] .peek svg{transform:rotate(180deg)}
+  .paper:hover .peek,
+  .paper[aria-expanded="true"] .peek{opacity:.55}
+  .paper p.abs{margin:12px 0 0; font-size:15px}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{transition:none}
+  }
+  .figure-note{
+    margin:14px 0 0; padding:12px 14px; border:1px solid var(--line);
+    border-radius:7px; background:var(--bg);
+  }
+  .figure-note figcaption{
+    color:var(--muted); font-size:12.5px; margin-top:9px; line-height:1.5;
+  }
 
   .bg-item{display:flex; gap:18px; padding:14px 0; border-bottom:1px solid var(--line)}
   .bg-item:last-child{border-bottom:none}
@@ -522,34 +553,68 @@
       rationale, and wrote most of the paper.
     </p>
 
-    <div class="paper">
+    <div class="paper" tabindex="0" role="button" aria-expanded="false">
       <h3>Brain Tumor Classification Using Deep Learning Techniques</h3>
       <p class="cite">
         Mahajan, P., Gupta, S., Bhanushali, D.K. &amp; Joshi, D. (2024).
         <em>Lecture Notes in Networks and Systems</em>, vol. 818, pp. 15&ndash;34. Springer,
         Singapore. Presented at ICDSA 2023.
-        &middot; <a href="https://doi.org/10.1007/978-981-99-7862-5_2">doi:10.1007/978-981-99-7862-5_2</a>
       </p>
-      <p class="abs">
-        A review and comparison of deep learning architectures for classifying benign,
-        malignant and pituitary brain tumours, weighing traditional CNN approaches against
-        experimental ones, and looking at where the technique could reduce how often a biopsy
-        is needed.
+      <p class="peek">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+        Abstract
       </p>
+      <div class="reveal"><div>
+        <p class="abs">
+          A review and comparison of deep learning architectures for classifying benign,
+          malignant and pituitary brain tumours, weighing traditional CNN approaches against
+          experimental ones, and looking at where the technique could reduce how often a
+          biopsy is needed.
+        </p>
+
+        <figure class="figure-note">
+          <svg viewBox="0 0 460 108" role="img" aria-label="Reported classification accuracy: traditional CNN approaches span 85.6 to 96.7 percent; experimental architectures span 91.4 to 96.4 percent." style="width:100%;height:auto;display:block">
+            <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5">
+              <text x="0" y="12" fill="var(--muted)">Traditional CNN</text>
+              <line x1="0" y1="26" x2="460" y2="26" stroke="var(--line)" stroke-width="6" stroke-linecap="round"></line>
+              <line x1="160" y1="26" x2="432" y2="26" stroke="var(--accent)" stroke-width="6" stroke-linecap="round"></line>
+              <text x="150" y="44" fill="var(--muted)" text-anchor="middle">85.6%</text>
+              <text x="440" y="44" fill="var(--muted)" text-anchor="end">96.7%</text>
+
+              <text x="0" y="72" fill="var(--muted)">Experimental architectures</text>
+              <line x1="0" y1="86" x2="460" y2="86" stroke="var(--line)" stroke-width="6" stroke-linecap="round"></line>
+              <line x1="288" y1="86" x2="424" y2="86" stroke="var(--accent)" stroke-width="6" stroke-linecap="round"></line>
+              <text x="278" y="104" fill="var(--muted)" text-anchor="middle">91.4%</text>
+              <text x="432" y="104" fill="var(--muted)" text-anchor="end">96.4%</text>
+            </g>
+          </svg>
+          <figcaption>
+            Reported accuracy ranges across the architectures surveyed. Scale runs 80 to 100%.
+            The newer approaches were not uniformly better, which was the more interesting
+            result. <a href="https://doi.org/10.1007/978-981-99-7862-5_2">Read the paper</a>.
+          </figcaption>
+        </figure>
+      </div></div>
     </div>
 
-    <div class="paper">
+    <div class="paper" tabindex="0" role="button" aria-expanded="false">
       <h3>Body Pose Estimation using Deep Learning</h3>
       <p class="cite">
         Mahajan, P., Gupta, S. &amp; Bhanushali, D.K. (2023).
         <em>International Journal for Research in Applied Science and Engineering
         Technology</em>, 11(3), pp. 1419&ndash;1424.
-        &middot; <a href="https://doi.org/10.22214/ijraset.2023.49688">doi:10.22214/ijraset.2023.49688</a>
       </p>
-      <p class="abs">
-        A real-time human pose detection and recognition system built on MediaPipe,
-        identifying body poses from both live and recorded video.
+      <p class="peek">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+        Abstract
       </p>
+      <div class="reveal"><div>
+        <p class="abs">
+          A real-time human pose detection and recognition system built on MediaPipe,
+          identifying body poses from both live and recorded video.
+          <a href="https://doi.org/10.22214/ijraset.2023.49688">Read the paper</a>.
+        </p>
+      </div></div>
     </div>
   </section>
 
@@ -618,5 +683,22 @@
   </footer>
 
 </div>
+
+<script>
+  // Hover reveals the abstract for mouse users; this covers touch and keyboard.
+  document.querySelectorAll('.paper').forEach(function (paper) {
+    function toggle() {
+      var open = paper.getAttribute('aria-expanded') === 'true';
+      paper.setAttribute('aria-expanded', open ? 'false' : 'true');
+    }
+    paper.addEventListener('click', function (e) {
+      if (e.target.closest('a')) return;   // let citation links through
+      toggle();
+    });
+    paper.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
+</script>
 </body>
 </html>
