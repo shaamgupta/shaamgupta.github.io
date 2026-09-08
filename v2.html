@@ -41,7 +41,7 @@
     -webkit-font-smoothing:antialiased;
   }
   .mono{font-family:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
-  .wrap{max-width:1060px; margin:0 auto; padding:0 28px}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px}
   a{color:var(--accent); text-decoration:none}
   a:hover{text-decoration:underline}
   :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
@@ -54,7 +54,7 @@
   }
   .topbar.stuck{border-bottom-color:var(--line)}
   .topbar-in{
-    max-width:1060px; margin:0 auto; padding:12px 28px;
+    max-width:1120px; margin:0 auto; padding:12px 28px;
     display:flex; justify-content:flex-end; align-items:center; gap:12px;
   }
   .theme-toggle{
@@ -78,7 +78,7 @@
     background-size:26px 26px;
   }
   .hero-in{position:relative; display:flex; gap:56px; align-items:flex-start}
-  .hero-text{flex:1 1 auto; min-width:0; max-width:600px}
+  .hero-text{flex:1 1 auto; min-width:0; max-width:560px}
   .eyebrow{
     font-family:"Space Mono",monospace; font-size:11.5px; letter-spacing:.16em;
     text-transform:uppercase; color:var(--accent); margin:0 0 22px;
@@ -104,10 +104,10 @@
   .cta-secondary{border-color:var(--line); color:var(--ink); font-weight:400}
   .cta-secondary:hover{border-color:var(--ink)}
 
-  .hero-portrait{position:relative; flex:0 0 380px; width:380px; margin-top:10px}
-  .portrait-frame{position:relative; width:280px; height:280px; margin:0 auto}
+  .hero-portrait{position:relative; flex:0 0 430px; width:430px; height:450px; margin-top:4px}
+  .portrait-frame{position:absolute; left:100px; top:110px; width:230px; height:230px}
   .portrait-frame img{
-    width:280px; height:280px; border-radius:50%; object-fit:cover; display:block;
+    width:230px; height:230px; border-radius:50%; object-fit:cover; display:block;
   }
   .portrait-frame::after{
     content:""; position:absolute; inset:-9px; border-radius:50%;
@@ -116,17 +116,18 @@
   .tags{position:absolute; inset:0; pointer-events:none}
   .tag{
     position:absolute; font-family:"Space Mono",monospace; font-size:10.5px;
-    line-height:1.6; letter-spacing:.03em; color:var(--ink); width:150px;
+    line-height:1.6; letter-spacing:.03em; color:var(--ink);
     opacity:0; transform:translateY(8px); animation:settle .7s cubic-bezier(.2,.7,.3,1) both;
   }
   .tag span{color:var(--muted); display:block}
-  .tag.t1{right:302px; top:44px; text-align:right; animation-delay:.9s}
-  .tag.t2{left:308px; top:130px; animation-delay:1.1s}
-  .tag.t3{left:262px; top:300px; animation-delay:1.3s}
-  .tag.t4{right:288px; top:288px; text-align:right; animation-delay:1.5s; color:var(--teal)}
+  .tag{width:186px}
+  .tag.t1{left:0; top:6px; animation-delay:.9s}
+  .tag.t2{right:0; top:6px; text-align:right; animation-delay:1.1s}
+  .tag.t3{left:0; bottom:4px; animation-delay:1.3s}
+  .tag.t4{right:0; bottom:4px; text-align:right; animation-delay:1.5s; color:var(--teal)}
   .tag.t4 span{color:var(--teal); opacity:.72}
   @keyframes settle{to{opacity:1; transform:translateY(0)}}
-  .tag-lines{position:absolute; inset:0; width:380px; height:420px; pointer-events:none}
+  .tag-lines{position:absolute; inset:0; width:430px; height:450px; pointer-events:none}
   .scroll-cue{
     font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.12em;
     text-transform:uppercase; color:var(--ink); margin:56px 0 0;
@@ -328,12 +329,16 @@
   .foot-me div{font-size:17px}
 
   /* ---------- responsive ---------- */
+  @media (max-width:1040px){
+    .hero-portrait{flex:0 0 300px; width:300px; height:auto}
+    .portrait-frame{position:relative; left:auto; top:auto; width:230px; height:230px; margin:0 auto}
+    .tags,.tag-lines{display:none}
+  }
   @media (max-width:900px){
     .hero-in{flex-direction:column-reverse; gap:34px}
     .hero-portrait{flex:0 0 auto; width:100%; margin-top:0}
     .portrait-frame{width:190px; height:190px; margin:0}
     .portrait-frame img{width:190px; height:190px}
-    .tags,.tag-lines{display:none}
     .split{flex-direction:column; gap:34px}
     .split-side{flex:1 1 auto; width:100%; border-left:none; border-top:1px solid var(--line);
       padding-left:0; padding-top:26px}
@@ -394,12 +399,12 @@
       <div class="portrait-frame">
         <img src="img/portrait.jpg" alt="Shambhavi Gupta" width="280" height="280">
       </div>
-      <svg class="tag-lines" viewBox="0 0 380 420" aria-hidden="true">
+      <svg class="tag-lines" viewBox="0 0 430 450" aria-hidden="true">
         <g stroke="var(--accent)" stroke-width="1.2" fill="none">
-          <path d="M62 96 L18 68"></path><circle cx="64" cy="97" r="3" fill="var(--accent)" stroke="none"></circle>
-          <path d="M318 168 L360 150"></path><circle cx="316" cy="169" r="3" fill="var(--accent)" stroke="none"></circle>
-          <path d="M272 300 L306 334"></path><circle cx="270" cy="298" r="3" fill="var(--accent)" stroke="none"></circle>
-          <path d="M92 296 L56 328"></path><circle cx="94" cy="294" r="3" fill="var(--accent)" stroke="none"></circle>
+          <path d="M76 66 L130 142"></path><circle cx="132" cy="145" r="3" fill="var(--accent)" stroke="none"></circle>
+          <path d="M354 66 L300 142"></path><circle cx="298" cy="145" r="3" fill="var(--accent)" stroke="none"></circle>
+          <path d="M76 388 L130 310"></path><circle cx="132" cy="307" r="3" fill="var(--accent)" stroke="none"></circle>
+          <path d="M354 388 L300 310"></path><circle cx="298" cy="307" r="3" fill="var(--accent)" stroke="none"></circle>
         </g>
       </svg>
       <div class="tags">
