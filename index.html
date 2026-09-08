@@ -108,6 +108,20 @@
   .bg-what strong{display:block; font-weight:600}
   .bg-what span{color:var(--muted); font-size:15px}
 
+  .feed{
+    display:flex; gap:18px; overflow-x:auto; overscroll-behavior-x:contain;
+    scroll-snap-type:x proximity; padding:2px 24px 16px;
+    margin:0 -24px; -webkit-overflow-scrolling:touch;
+  }
+  .feed iframe{
+    flex:0 0 auto; border:1px solid var(--line); border-radius:10px;
+    background:var(--surface); scroll-snap-align:start; max-width:100%;
+  }
+  .feed-hint{
+    color:var(--muted); font-size:13px; margin:0; display:flex;
+    align-items:center; gap:7px;
+  }
+
   .soon{
     border:1px dashed var(--line); border-radius:10px; padding:24px;
     color:var(--muted); font-size:15px;
@@ -537,6 +551,25 @@
         identifying body poses from both live and recorded video.
       </p>
     </div>
+  </section>
+
+  <section>
+    <h2>Recent activity</h2>
+    <p class="sec-note">
+      What I have been thinking about lately, straight from the source.
+      <a href="https://www.linkedin.com/in/shambhavi-gupta-pm/">All of it on LinkedIn</a>.
+    </p>
+
+    <div class="feed">
+      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7501515102404370432?collapsed=1" height="670" width="504" frameborder="0" allowfullscreen="" title="Post by Shambhavi Gupta on LinkedIn" loading="lazy"></iframe>
+      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7495527086930001920?collapsed=1" height="670" width="504" frameborder="0" allowfullscreen="" title="Post by Shambhavi Gupta on LinkedIn" loading="lazy"></iframe>
+      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7493653999800381440?collapsed=1" height="670" width="504" frameborder="0" allowfullscreen="" title="Post by Shambhavi Gupta on LinkedIn" loading="lazy"></iframe>
+    </div>
+
+    <p class="feed-hint">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+      Scroll sideways for more
+    </p>
   </section>
 
   <section>
