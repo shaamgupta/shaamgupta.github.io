@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shambhavi Gupta — Product Manager - Platform and AI</title>
-<meta name="description" content="Shambhavi (Shaam) Gupta — Product Manager, Platform and AI, at Optevo. Melbourne, VIC. AI governance, delivery, and applied analytics.">
+<title>Shambhavi Gupta, Product Manager - Platform and AI</title>
+<meta name="description" content="Shambhavi (Shaam) Gupta. Product Manager, Platform and AI, at Optevo. Melbourne, VIC.">
 <style>
   :root{
     --bg:#fbfaf8; --surface:#fff; --line:#e5e1da; --ink:#1b1a18; --muted:#6b6660;
@@ -20,21 +20,19 @@
   *{box-sizing:border-box}
   body{
     margin:0; background:var(--bg); color:var(--ink);
-    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    font:16px/1.68 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:760px; margin:0 auto; padding:0 24px}
+  .wrap{max-width:740px; margin:0 auto; padding:0 24px}
   a{color:var(--accent)}
 
   header{padding:84px 0 8px}
   h1{font-size:clamp(30px,5vw,40px); line-height:1.15; margin:0 0 10px; letter-spacing:-.02em}
   .role{font-size:19px; color:var(--accent); font-weight:600; margin:0 0 6px}
   .loc{color:var(--muted); font-size:15px; margin:0}
-  .statement{
-    font-size:clamp(20px,2.7vw,25px); line-height:1.4; letter-spacing:-.015em;
-    margin:34px 0 0; padding-left:20px; border-left:3px solid var(--accent);
-  }
-  .sub{font-size:17px; color:var(--muted); margin:18px 0 0}
+  .intro{font-size:18.5px; line-height:1.6; margin:32px 0 0}
+  .intro p{margin:0 0 16px}
+  .intro p:last-child{margin:0}
 
   section{padding:52px 0 8px}
   h2{
@@ -47,10 +45,10 @@
     background:var(--surface); border:1px solid var(--line); border-radius:11px;
     padding:26px; margin-bottom:20px; box-shadow:var(--shadow);
   }
-  .case h3{margin:0 0 5px; font-size:21px; letter-spacing:-.015em; line-height:1.25}
+  .case h3{margin:0 0 5px; font-size:21px; letter-spacing:-.015em; line-height:1.3}
   .case .meta{color:var(--muted); font-size:13.5px; margin:0 0 16px}
-  .hook{font-size:17.5px; margin:0 0 20px; line-height:1.5}
-  .beats{margin:0; display:grid; grid-template-columns:104px 1fr; gap:11px 18px}
+  .hook{font-size:17px; margin:0 0 20px; line-height:1.58}
+  .beats{margin:0; display:grid; grid-template-columns:112px 1fr; gap:11px 18px}
   .beats dt{
     color:var(--muted); font-size:11.5px; text-transform:uppercase;
     letter-spacing:.08em; font-weight:700; padding-top:4px;
@@ -74,12 +72,10 @@
   .detail-body{padding:8px 0 4px}
   .detail-body p{margin:0 0 14px}
   .detail-body p:last-child{margin-bottom:0}
-  .shows{
-    margin-top:16px; padding:13px 16px; background:var(--accent-soft);
-    border-radius:7px; font-size:15px;
+  .reflect{
+    margin-top:18px; padding-top:15px; border-top:1px solid var(--line);
+    font-size:15.5px; color:var(--muted); font-style:italic;
   }
-  .shows strong{display:block; font-size:11.5px; text-transform:uppercase;
-    letter-spacing:.08em; color:var(--muted); margin-bottom:4px}
 
   figure{margin:22px 0 4px}
   figure svg{width:100%; height:auto; display:block}
@@ -91,7 +87,6 @@
   .paper h3{margin:0 0 4px; font-size:17px; line-height:1.35; letter-spacing:-.01em}
   .paper .cite{color:var(--muted); font-size:14px; margin:0 0 8px}
   .paper p.abs{margin:0; font-size:15px}
-  .paper .mine{font-size:14px; color:var(--muted); margin:8px 0 0}
 
   .bg-item{display:flex; gap:18px; padding:14px 0; border-bottom:1px solid var(--line)}
   .bg-item:last-child{border-bottom:none}
@@ -119,59 +114,61 @@
     <p class="role">Product Manager - Platform and AI</p>
     <p class="loc">Melbourne, VIC &middot; Full Australian work rights</p>
 
-    <p class="statement">
-      I shape the thing, run the build, and write the document it gets judged on.
-      I&rsquo;ve been doing that since I was nineteen.
-    </p>
-    <p class="sub">
-      Currently at Optevo, a US-based collaborative work management company, where I own
-      delivery across concurrent AI and platform workstreams. Computer engineering background,
-      two peer-reviewed ML papers, and a Master of Business Analytics underway at Melbourne
-      Business School.
-    </p>
+    <div class="intro">
+      <p>
+        I work on AI and platform features at Optevo, a US-based collaborative work
+        management company. Most of my job sits in the gap between deciding what to build
+        and being able to show it is actually ready to ship.
+      </p>
+      <p>
+        I came into product from analytics. The thing that moved me across was noticing
+        that the model was never the interesting part. What people did with the output was.
+      </p>
+    </div>
   </header>
 
   <section>
     <h2>Selected work</h2>
-    <p class="sec-note">Three projects. Expand any one for the full account.</p>
+    <p class="sec-note">Three projects. Expand any one to read the whole story.</p>
 
     <!-- ============ OPTEVO ============ -->
     <article class="case">
-      <h3>An AI feature that isn&rsquo;t allowed to create anything</h3>
+      <h3>Turning documents into tasks, without handing over control</h3>
       <p class="meta">Optevo &middot; Product Manager, Platform and AI &middot; 2026</p>
 
       <p class="hook">
-        Teams were reading long briefs and discussion threads and retyping them into tasks by
-        hand &mdash; slow, inconsistent, and the reason a task existed was lost the moment
-        someone created it. The obvious fix is to let an AI create the tasks. That&rsquo;s the
-        version most teams build, and it&rsquo;s the wrong one.
+        People were reading long briefs and discussion threads and retyping them into tasks
+        by hand. It is slow, and something quietly goes missing along the way. Once a task
+        has been typed out, nothing connects it back to where it came from, so a few weeks
+        later nobody can really say why it is on the board.
       </p>
 
       <dl class="beats">
-        <dt>My call</dt>
+        <dt>Context</dt>
         <dd>
-          The AI proposes; it never creates. Proposals land in a holding state, a permitted
-          user reviews, edits, rejects or approves, and only on approval does the existing
-          task API create anything &mdash; tagged with its source and marked AI-assisted. The
-          AI service has no ability to create, mutate, approve or convert a task.
+          The obvious fix is to let an AI create the tasks. That is the version most teams
+          build. I was not comfortable with it, because it puts unreviewed model output
+          straight into a team&rsquo;s real work queue with nobody accountable for what it
+          made.
         </dd>
-        <dt>Under pressure</dt>
+        <dt>What I did</dt>
         <dd>
-          Timeline risk surfaced two days into the build window. I took engineering&rsquo;s
-          compression proposal, wrote up what it preserved and what it gave up, and put it to
-          the decision-maker as an explicit trade-off. Scope moved; the committed date held.
+          Locked a different shape before anything was built. The AI writes proposals into a
+          holding state. Someone with the right permissions reviews, edits, rejects or
+          approves. Only on approval does the existing task API create anything, tagged with
+          where it came from. The AI service cannot create or change a task at all.
         </dd>
-        <dt>Shipped</dt>
+        <dt>What happened</dt>
         <dd>
-          On the committed date. Ten user stories passing with captured verification evidence,
-          four release blockers and three polish items closed with retest proof, and an
-          independent QA re-test of nineteen items on top of primary QA.
+          It shipped on the date leadership had committed to. Ten user stories passing with
+          evidence captured, four blockers and three polish items closed with retest proof,
+          and an independent QA pass of nineteen items on top of the primary one.
         </dd>
       </dl>
 
       <figure>
         <div class="diagram-scroll">
-        <svg viewBox="0 0 700 232" role="img" aria-label="Flow diagram: a source document or thread produces an AI proposal held in a review state; a human reviews and may edit, reject or approve; only approval triggers task creation through the existing platform API, with provenance linked back to the source. The AI cannot cross into task creation.">
+        <svg viewBox="0 0 700 232" role="img" aria-label="Flow diagram: a source document or thread produces an AI proposal held in a review state; a person reviews and may edit, reject or approve; only approval triggers task creation through the existing platform API, with provenance linked back to the source. The AI cannot cross into task creation.">
           <defs>
             <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6"
                     markerHeight="6" orient="auto-start-reverse">
@@ -193,7 +190,7 @@
             <text x="231" y="78" text-anchor="middle" font-size="12.5"
                   fill="var(--ink)" font-weight="600">AI proposal</text>
             <text x="231" y="95" text-anchor="middle" font-size="11.5" fill="var(--muted)">held for review</text>
-            <text x="231" y="110" text-anchor="middle" font-size="11.5" fill="var(--muted)">— creates nothing —</text>
+            <text x="231" y="110" text-anchor="middle" font-size="11.5" fill="var(--muted)">creates nothing</text>
 
             <line x1="298" y1="88" x2="336" y2="88" stroke="var(--muted)"
                   stroke-width="1.4" marker-end="url(#ar)"/>
@@ -201,7 +198,7 @@
             <rect x="340" y="56" width="126" height="64" rx="7"
                   fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
             <text x="403" y="78" text-anchor="middle" font-size="12.5"
-                  fill="var(--ink)" font-weight="600">Human review</text>
+                  fill="var(--ink)" font-weight="600">Person reviews</text>
             <text x="403" y="95" text-anchor="middle" font-size="11.5" fill="var(--muted)">edit / reject</text>
             <text x="403" y="110" text-anchor="middle" font-size="11.5" fill="var(--muted)">/ approve</text>
 
@@ -218,224 +215,244 @@
             <path d="M604 118 L604 150 L63 150 L63 120" fill="none" stroke="var(--muted)"
                   stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#ar)"/>
             <text x="334" y="167" text-anchor="middle" font-size="11.5"
-                  fill="var(--muted)">provenance linked back to source</text>
+                  fill="var(--muted)">the task keeps a link back to its source</text>
 
             <line x1="317" y1="18" x2="317" y2="206" stroke="var(--diagram-stop)"
                   stroke-width="2" stroke-dasharray="7 5"/>
             <text x="309" y="204" text-anchor="end" font-size="11"
-                  fill="var(--diagram-stop)" font-weight="700">AI cannot cross</text>
-            <text x="325" y="204" text-anchor="start" font-size="11" fill="var(--muted)">human authority</text>
+                  fill="var(--diagram-stop)" font-weight="700">AI stays this side</text>
+            <text x="325" y="204" text-anchor="start" font-size="11" fill="var(--muted)">people decide here</text>
           </g>
         </svg>
         </div>
-        <figcaption>The governance boundary: AI proposes, a human approves, the platform creates.</figcaption>
+        <figcaption>The line we drew: AI proposes, a person approves, the platform creates.</figcaption>
       </figure>
 
       <details>
-        <summary>Read the full case study</summary>
+        <summary>Read the whole story</summary>
         <div class="detail-body">
           <p>
-            Generating work items by hand is a quiet, expensive problem. Someone reads a brief
-            or a long thread, decides what needs doing, and retypes it as tasks. It is slow and
-            inconsistent, and the link back to <em>why</em> a task exists disappears at the
-            moment of creation &mdash; so nobody can later answer why something is on the board.
+            Generating work items by hand is one of those problems nobody complains about
+            loudly, because it just feels like the job. Someone reads a brief or a long
+            thread, works out what needs doing, and retypes it as tasks. It is slow and it
+            comes out differently depending on who did it. The part that bothered me more was
+            the traceability. The moment a task is typed out by hand, the link back to the
+            conversation it came from is gone, and a manager looking at the board later has no
+            way to answer why something is on it.
           </p>
           <p>
-            The obvious solution is to let a model create the tasks. I argued against it. That
-            design drops unreviewed model output straight into a team&rsquo;s real work queue,
-            with no accountability for what it made or where it came from. So I locked a
-            different governance model before any build started: the AI writes reviewable
-            proposals into a holding state, a permitted user reviews and edits, rejects or
-            approves, and only approval triggers creation through the existing task API. The AI
-            service itself can neither create, mutate, approve nor convert a task.
-            AI-assisted, not AI-executed.
+            So the case for using AI here was easy. The question was what the AI should be
+            allowed to do, and that is where I think a lot of teams are getting it wrong right
+            now. If the model creates the tasks directly, you have put something nobody
+            reviewed into the queue that people are actually working from, and there is no one
+            to point at when it is wrong.
           </p>
           <p>
-            Two days into the build window, timeline risk surfaced. Rather than ask for more
-            time against a leadership-committed date, I took engineering&rsquo;s compression
-            proposal &mdash; build only the two genuinely new screens, reuse the proven
-            task-creation modal for review and approval &mdash; documented what it preserved
-            and what it sacrificed, and put it up as an explicit trade-off rather than a
-            decision already made.
+            I settled the shape before the build started. The AI writes reviewable proposals
+            into a holding state. A permitted user reviews them, edits them, rejects or
+            approves them. Only approval triggers creation, and it goes through the existing
+            task API rather than a new path, tagged with its source and marked as AI-assisted.
+            The AI service itself has no ability to create, change, approve or convert a task.
+            Assisted, not executed.
           </p>
           <p>
-            When the hardening pass produced failures, I confirmed four scope decisions and
-            wrote the reasoning for each: a source anchor deferred as post-release, image
-            sources out of scope, release scope fixed at exactly two source paths so QA had a
-            stable baseline, attachments deferred. I cut scope, but I refused to cut the honest
-            error message &mdash; unsupported content had to say so plainly rather than fail
-            silently. I then wrote the release-readiness evidence: every story with its
-            verification, every blocker with an owner and proof of closure, five known
-            limitations named and parked. I signalled readiness; the go/no-go call itself sat
-            with the product owner.
+            Two days into the build window a timeline risk surfaced. The date had been
+            committed by leadership, so rather than go back and ask for more time I took the
+            compression option engineering suggested, which was to build only the two genuinely
+            new screens and reuse the existing task creation modal for review and approval. I
+            wrote up what that kept and what it gave up, and put it to the decision maker as a
+            trade-off rather than something already decided.
           </p>
           <p>
-            Two months from initiative start to production, with a two-week build-to-release
-            window. Distributed team across three timezones &mdash; product, design, backend,
-            AI, two frontend engineers and two QA.
+            When the hardening pass turned up failures I confirmed four scope calls and wrote
+            down the reasoning for each. A source anchor moved to post-release. Image sources
+            out of scope. Release scope fixed at two source paths so QA had something stable
+            to test against. Attachments deferred. The one thing I would not cut was the error
+            message: if a user gave it something unsupported, the interface had to say so
+            plainly rather than fail quietly.
           </p>
-          <div class="shows">
-            <strong>What this shows</strong>
-            I would rather ship a smaller feature with a defensible boundary than a larger one
-            that quietly moves authority away from the people accountable for the work.
-          </div>
+          <p>
+            I wrote the release readiness evidence, every story with its verification, every
+            blocker with an owner and proof it was closed, five known limitations named and
+            parked rather than quietly shipped. I signalled that it was ready. The go/no-go
+            call itself sat with the product owner.
+          </p>
+          <p>
+            Two months from starting the initiative to production, with a two week build
+            window at the end. Product, design, backend, AI, two frontend engineers and two QA,
+            across three timezones.
+          </p>
+          <p class="reflect">
+            The thing I keep coming back to is that the smaller version was the better one. We
+            gave up a fair bit of scope to hold the date, and almost none of it turned out to
+            matter.
+          </p>
         </div>
       </details>
     </article>
 
     <!-- ============ AGL ============ -->
     <article class="case">
-      <h3>A $1.1 billion rebate that barely moved the debt book</h3>
-      <p class="meta">AGL Energy &middot; Commercial Analyst, Credit &amp; Affordability &middot; 2024</p>
+      <h3>What a $1.1 billion rebate actually did to the debt book</h3>
+      <p class="meta">AGL Energy &middot; Commercial Analyst, Credit and Affordability &middot; 2024</p>
 
       <p class="hook">
-        A large government energy rebate was landing on customer accounts. AGL needed to know
-        whether that cash would actually pay down its debt book &mdash; or whether chronic and
-        partial payers would absorb it without changing behaviour at all.
+        A large government energy rebate was about to land on customer accounts. The question
+        AGL needed answered was whether that money would genuinely pay down its debt book, or
+        whether customers who were already struggling would absorb it without their payment
+        behaviour changing at all.
       </p>
 
       <dl class="beats">
-        <dt>My call</dt>
+        <dt>Context</dt>
         <dd>
-          I argued for Monte Carlo simulation over a single-point forecast. Customer response
-          to a rebate is variable, and a single number hides exactly the range that matters
-          for provisioning. I also ran bootstrapping to estimate debt ratios for the partial
-          and zero-payer segments, which had the thinnest direct evidence.
+          It mattered for bad-debt provisioning and for where collections effort should go. If
+          the rebate did the work, that resource could be pointed somewhere else. If it did
+          not, the write-off assumptions on the book were wrong. The prevailing view treated
+          the effect as more even across customers than it turned out to be.
         </dd>
-        <dt>Built</dt>
+        <dt>What I did</dt>
         <dd>
-          A segment transition model and a segment write-off model across 25 customer
-          segments, forecasting to end of FY25. I named my own simplifying assumption &mdash;
-          that segment behaviour holds steady across the year &mdash; as a stated limitation
-          rather than burying it.
+          Argued for Monte Carlo simulation instead of a single-point forecast. Customer
+          response to a rebate varies a lot, and a single number hides the range, which is
+          exactly the thing a provisioning decision needs. For the segments with the least
+          evidence behind them I used bootstrapping over historical data rather than assuming
+          a figure.
         </dd>
-        <dt>Found</dt>
+        <dt>What happened</dt>
         <dd>
-          A forecast reduction of roughly 2% in the debt book. The interesting result is the
-          direction, not the size: a very large rebate produced only a modest improvement,
-          which is the opposite of the intuitive answer and the reason the work mattered.
+          The forecast came back at roughly a 2% reduction, across 25 customer segments out to
+          the end of FY25. Five weeks, team of four. My results were referenced in the
+          report&rsquo;s conclusions and presented on site to the AGL sponsor.
         </dd>
       </dl>
 
       <details>
-        <summary>Read the full case study</summary>
+        <summary>Read the whole story</summary>
         <div class="detail-body">
           <p>
-            The commercial stake was bad-debt provisioning, collections strategy and the FY25
-            debt position. If the rebate did the work, collections effort could be redirected
-            elsewhere. If it didn&rsquo;t, the write-off assumptions on the book were wrong.
-            The prevailing view treated the rebate&rsquo;s effect as more uniform across
-            customers than it actually was, and behaviour differed sharply between chronic,
-            partial and zero payers.
+            The rebate was worth $1.1 billion, and the intuitive answer is that money that
+            large has to move the debt book meaningfully. What we found was that it probably
+            would not. Roughly 2%. That gap between what you would assume and what the numbers
+            suggested is the actual finding, and it is the part I found genuinely interesting.
           </p>
           <p>
-            My contribution was the method. I argued for Monte Carlo simulation rather than a
-            single-point forecast, on the grounds that a point estimate hides the distribution
-            &mdash; and for a provisioning decision, the spread is the thing you actually need.
-            For the segments with the least direct evidence, I used bootstrapping over
-            historical data to estimate debt ratios rather than assuming them.
+            My contribution was mostly the method. A single-point forecast would have given
+            the business one number to plan around, and for a provisioning decision that is
+            close to useless, because what you actually need to know is how wrong the number
+            could be. So I made the case for Monte Carlo simulation, which gives you the spread
+            rather than a single reassuring figure. For the partial and zero payer segments,
+            where there was very little direct evidence to work from, I resampled historical
+            data to estimate the debt ratios instead of picking something plausible.
           </p>
           <p>
-            The output was a segment transition model and a segment write-off model, feeding a
-            team report and a final presentation delivered on site to the AGL business sponsor.
-            My model results were referenced directly in the report&rsquo;s conclusions. Five
-            weeks, team of four.
+            I also made a simplifying assumption I was not entirely happy with, which was that
+            segment behaviour holds steady across the year and does not fluctuate month to
+            month. It was the right call for the time we had, but I wrote it into the report as
+            a stated limitation rather than leaving it for someone else to find.
           </p>
           <p>
-            The forecast came back at roughly a 2% reduction against a rebate worth $1.1
-            billion. Stated plainly: this is a forecast, not a realised outcome, and I have no
-            visibility into whether the recommendation was adopted. The value was in the
-            direction of the finding &mdash; that a very large intervention was likely to
-            produce a modest movement &mdash; and in showing the range around it rather than a
-            single reassuring number.
+            The output was a segment transition model and a segment write-off model, feeding
+            into a team report and a final presentation delivered on site to the AGL business
+            sponsor. To be straightforward about the limits of this: it is a forecast, not a
+            realised outcome, and I have no visibility into whether the recommendation was
+            picked up afterwards.
           </p>
-          <div class="shows">
-            <strong>What this shows</strong>
-            I pick the method that answers the actual decision, and I state the limitations of
-            my own model before someone else has to find them.
-          </div>
+          <p class="reflect">
+            This is the project that moved me from analytics into product. The modelling was
+            good fun, but the part I kept thinking about afterwards was what anyone was
+            supposed to do with the answer.
+          </p>
         </div>
       </details>
     </article>
 
     <!-- ============ COMP AG ============ -->
     <article class="case">
-      <h3>Designing for the farmer who doesn&rsquo;t own a phone</h3>
+      <h3>Building for farmers who do not own a phone</h3>
       <p class="meta">Team UAS NMIMS &middot; Techfest, IIT Bombay &middot; 2020</p>
 
       <p class="hook">
-        Nearly every agri-tech product assumes a smartphone. A large share of the wheat
-        cultivators we were designing for don&rsquo;t own one. That single constraint changed
-        the hardware, not just the interface.
+        Almost every agri-tech product assumes the farmer has a smartphone. A large share of
+        the wheat cultivators we were designing for do not. Once we understood that properly,
+        it changed the hardware, not just the screen.
       </p>
 
       <dl class="beats">
-        <dt>My role</dt>
+        <dt>Context</dt>
+        <dd>
+          Farmers were making sowing and irrigation decisions from experience rather than
+          measurement, with no reliable read on soil contamination, nutrient levels or water
+          quality, and no direct route to market. Many of them were also illiterate or
+          semi-literate, so anything we built had to be readable at a glance.
+        </dd>
+        <dt>What I did</dt>
         <dd>
           Shaped the solution, planned the build and ran the timeline across a student
-          engineering team, designed the UI flow for the marketplace, and wrote the technical
-          report and rationale the entry was judged on. The hardware build sat with teammates.
+          engineering team, designed the interface flow for the marketplace, and wrote the
+          technical report and the rationale the entry was judged on. The hardware build sat
+          with my teammates.
         </dd>
-        <dt>Scoped</dt>
+        <dt>What happened</dt>
         <dd>
-          Deliberately narrowed to wheat across four contiguous states, and wrote down why:
-          India is the second-largest wheat cultivator globally, and those states cover a large
-          share of both irrigated and non-irrigated production.
-        </dd>
-        <dt>Built</dt>
-        <dd>
-          A solar-powered field sensor unit on a custom PCB with eight sensor types, a handheld
-          spot-check device with its own built-in screen, and a deployed web marketplace with
-          a sell flow letting farmers set their own price.
+          Fifth nationally at Techfest, IIT Bombay. We built a solar-powered field sensor unit
+          on a custom PCB, a handheld spot-check device with its own built-in screen, and a
+          deployed web marketplace where farmers set their own price.
         </dd>
       </dl>
 
       <details>
-        <summary>Read the full case study</summary>
+        <summary>Read the whole story</summary>
         <div class="detail-body">
           <p>
-            Indian agriculture supports around 58% of the population, and the farmers we looked
-            at were making sowing and irrigation decisions from experience rather than
-            measurement &mdash; no reliable read on soil contamination, nutrient levels or
-            water quality, and no direct route to market.
+            Indian agriculture supports around 58% of the population, and the farmers we were
+            looking at were making decisions the way their families always had, from
+            experience rather than measurement. There was no reliable way to know what was
+            happening in the soil, and no direct route to a buyer.
           </p>
           <p>
-            The constraint that shaped everything was that a large share of these farmers do
-            not own a phone. That is why the handheld unit carries its own built-in screen
-            instead of pairing to a mobile app. Compounding it: users who are illiterate or
-            semi-literate and not market-savvy, so the output had to be readable at a glance,
-            on a device you own, without text comprehension. The screen is a single glanceable
-            panel &mdash; nitrogen, phosphorus, potassium and moisture on one side, temperature,
+            The constraint that ended up shaping everything was that a lot of these farmers do
+            not own a phone. It sounds obvious once you say it, but nearly every product in
+            this space quietly assumes a smartphone sitting in someone&rsquo;s pocket. It is
+            why the handheld unit carries its own built-in screen instead of pairing to an app,
+            and why that screen is laid out as one glanceable panel rather than a menu you have
+            to navigate: nitrogen, phosphorus, potassium and moisture on one side, temperature,
             humidity and light on the other.
           </p>
           <p>
-            The marketplace piece was a response to a live policy change. The 2020 ordinance
-            let buyers purchase outside the regulated mandis, removing the guaranteed-price
-            protection farmers had relied on. The forum exists because that protection
-            disappeared &mdash; registration and login, a dashboard, a shop, a sell flow where
-            farmers set their own price against a base price, and a community discussion space.
-            I designed that flow.
+            We narrowed to wheat across four contiguous states, and I wrote down why rather
+            than leaving it as a convenience. India is the second largest wheat cultivator in
+            the world, and those states cover a large share of both irrigated and non-irrigated
+            production, which meant we could actually serve the thing we were scoping.
           </p>
           <p>
-            We built three components rather than a concept deck: a solar-powered field unit in
-            a PVC housing with a custom circuit soldered onto a PCB around a Node MCU, carrying
-            camera, temperature, humidity, sunlight index, NPK, moisture and pH sensors &mdash;
-            solar because battery replacement in a field isn&rsquo;t realistic; an Arduino
-            Nano handheld for spot checks; and the deployed web application. A specified ML
-            pipeline on Flask handled yield, price and watering-cycle prediction, trained on
-            gridded surface meteorological data with covariates reduced to principal components.
+            The marketplace piece came out of a policy change happening at the time. The 2020
+            ordinance allowed buyers to purchase outside the regulated mandis, which removed
+            the guaranteed-price protection farmers had been relying on, and was being
+            protested while we were working. The forum exists because that protection went
+            away. It has registration and login, a dashboard, a shop, a sell flow where farmers
+            set their own price against a base price, and a discussion space. I designed that
+            flow.
           </p>
           <p>
-            Fifth nationally at Techfest, IIT Bombay. Honest framing: this was a functioning
-            prototype producing live sensor readings, not a calibrated, field-validated system,
-            and the ML pipeline was specified against simulated data rather than measured in
-            the field. It did not go further than the competition.
+            We built three things rather than presenting a concept. A solar-powered field unit
+            in a PVC housing, with a custom circuit soldered onto a PCB around a Node MCU,
+            carrying camera, temperature, humidity, sunlight index, NPK, moisture and pH
+            sensors. Solar, because expecting someone to replace a battery out in a field is
+            not realistic. An Arduino Nano handheld for spot checks. And the web application. A
+            specified ML pipeline on Flask handled yield, price and watering cycle prediction.
           </p>
-          <div class="shows">
-            <strong>What this shows</strong>
-            I find the constraint that everyone else designs around, and let it change the
-            product rather than the marketing.
-          </div>
+          <p>
+            Being honest about what this was: a working prototype producing live sensor
+            readings, not a calibrated or field-validated system, and the ML pipeline was
+            specified against simulated data rather than measured out in a field. It did not go
+            any further than the competition.
+          </p>
+          <p class="reflect">
+            I was nineteen and this is the first time I remember a single fact about the people
+            we were building for changing the whole shape of the thing. I have been looking for
+            that fact first ever since.
+          </p>
         </div>
       </details>
     </article>
@@ -444,8 +461,8 @@
   <section>
     <h2>Research</h2>
     <p class="sec-note">
-      Two peer-reviewed papers. On both, I built the models, developed the analytical
-      rationale, and wrote the majority of the paper.
+      Two peer-reviewed papers. On both I built the models, worked out the analytical
+      rationale, and wrote most of the paper.
     </p>
 
     <div class="paper">
@@ -459,8 +476,8 @@
       <p class="abs">
         A review and comparison of deep learning architectures for classifying benign,
         malignant and pituitary brain tumours, weighing traditional CNN approaches against
-        experimental architectures and assessing where the technique could reduce reliance on
-        biopsy.
+        experimental ones, and looking at where the technique could reduce how often a biopsy
+        is needed.
       </p>
     </div>
 
@@ -474,7 +491,7 @@
       </p>
       <p class="abs">
         A real-time human pose detection and recognition system built on MediaPipe,
-        identifying body poses from both live and recorded video streams.
+        identifying body poses from both live and recorded video.
       </p>
     </div>
   </section>
@@ -484,8 +501,8 @@
     <div class="soon">
       <p><strong>First post coming shortly.</strong></p>
       <p>
-        &ldquo;Why our AI feature isn&rsquo;t allowed to create anything&rdquo; &mdash; the
-        governance argument above, at length.
+        Why our AI feature is not allowed to create anything, and what we gave up to keep it
+        that way.
       </p>
     </div>
   </section>
@@ -498,7 +515,7 @@
     </div>
     <div class="bg-item">
       <div class="bg-when">2026 &ndash;</div>
-      <div class="bg-what"><strong>Melbourne Business School</strong><span>Master of Business Analytics &middot; University of Melbourne</span></div>
+      <div class="bg-what"><strong>Melbourne Business School</strong><span>Master of Business Analytics, University of Melbourne</span></div>
     </div>
     <div class="bg-item">
       <div class="bg-when">2025</div>
@@ -506,11 +523,11 @@
     </div>
     <div class="bg-item">
       <div class="bg-when">2024</div>
-      <div class="bg-what"><strong>AGL Energy</strong><span>Commercial Analyst &mdash; Credit &amp; Affordability</span></div>
+      <div class="bg-what"><strong>AGL Energy</strong><span>Commercial Analyst, Credit and Affordability</span></div>
     </div>
     <div class="bg-item">
       <div class="bg-when">2023</div>
-      <div class="bg-what"><strong>Stanford University</strong><span>Summer Graduate Session &mdash; Sustainability Design Thinking, Technology Entrepreneurship</span></div>
+      <div class="bg-what"><strong>Stanford University</strong><span>Summer Graduate Session, Sustainability Design Thinking and Technology Entrepreneurship</span></div>
     </div>
     <div class="bg-item">
       <div class="bg-when">2019 &ndash; 2023</div>
