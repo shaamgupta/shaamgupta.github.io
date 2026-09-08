@@ -47,6 +47,20 @@
   }
   .case h3{margin:0 0 5px; font-size:21px; letter-spacing:-.015em; line-height:1.3}
   .case .meta{color:var(--muted); font-size:13.5px; margin:0 0 16px}
+  .chips{display:flex; flex-wrap:wrap; gap:7px; margin:0 0 18px}
+  .chip{
+    font-size:12px; line-height:1; padding:6px 10px; border-radius:20px;
+    white-space:nowrap; letter-spacing:.005em;
+  }
+  .chip-m{
+    background:var(--accent-soft); color:var(--accent);
+    border:1px solid transparent; font-weight:600;
+  }
+  .chip-t{background:transparent; color:var(--muted); border:1px solid var(--line)}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .chip-m{border-color:var(--line)}
+  }
+
   .hook{font-size:17px; margin:0 0 20px; line-height:1.58}
   .beats{margin:0; display:grid; grid-template-columns:112px 1fr; gap:11px 18px}
   .beats dt{
@@ -135,6 +149,16 @@
     <article class="case">
       <h3>Turning documents into tasks, without handing over control</h3>
       <p class="meta">Optevo &middot; Product Manager, Platform and AI &middot; 2026</p>
+
+      <div class="chips">
+        <span class="chip chip-m">AI governance design</span>
+        <span class="chip chip-m">Release readiness</span>
+        <span class="chip chip-m">Scope negotiation</span>
+        <span class="chip chip-m">QA triage</span>
+        <span class="chip chip-t">Azure DevOps</span>
+        <span class="chip chip-t">Jira</span>
+        <span class="chip chip-t">Figma</span>
+      </div>
 
       <p class="hook">
         People were reading long briefs and discussion threads and retyping them into tasks
@@ -296,6 +320,15 @@
       <h3>What a $1.1 billion rebate actually did to the debt book</h3>
       <p class="meta">AGL Energy &middot; Commercial Analyst, Credit and Affordability &middot; 2024</p>
 
+      <div class="chips">
+        <span class="chip chip-m">Monte Carlo simulation</span>
+        <span class="chip chip-m">Bootstrapping</span>
+        <span class="chip chip-m">Segment transition modelling</span>
+        <span class="chip chip-m">Debt forecasting</span>
+        <span class="chip chip-t">Python</span>
+        <span class="chip chip-t">Excel</span>
+      </div>
+
       <p class="hook">
         A large government energy rebate was about to land on customer accounts. The question
         AGL needed answered was whether that money would genuinely pay down its debt book, or
@@ -371,6 +404,16 @@
     <article class="case">
       <h3>Building for farmers who do not own a phone</h3>
       <p class="meta">Team UAS NMIMS &middot; Techfest, IIT Bombay &middot; 2020</p>
+
+      <div class="chips">
+        <span class="chip chip-m">Product discovery</span>
+        <span class="chip chip-m">UI flow design</span>
+        <span class="chip chip-m">Embedded sensing</span>
+        <span class="chip chip-t">Python</span>
+        <span class="chip chip-t">Flask</span>
+        <span class="chip chip-t">Arduino / Node MCU</span>
+        <span class="chip chip-t">Heroku</span>
+      </div>
 
       <p class="hook">
         Almost every agri-tech product assumes the farmer has a smartphone. A large share of
