@@ -87,6 +87,15 @@
     max-width:1120px; margin:0 auto; padding:12px 28px;
     display:flex; justify-content:flex-end; align-items:center; gap:12px;
   }
+  .navlink{
+    font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); text-decoration:none;
+    border:1px solid var(--line); border-radius:20px; padding:8px 15px;
+    transition:border-color .18s ease, color .18s ease;
+  }
+  .navlink:hover{border-color:var(--ink); color:var(--ink); text-decoration:none}
+  .topbar-in{gap:10px}
+
   .theme-toggle{
     display:inline-flex; align-items:center; gap:7px; cursor:pointer;
     font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.08em;
@@ -463,6 +472,7 @@
 
 <div class="topbar" id="topbar">
   <div class="topbar-in">
+    <a class="navlink" href="/about/">About</a>
     <button class="theme-toggle" id="themeBtn" type="button" aria-label="Switch to dark mode">
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
