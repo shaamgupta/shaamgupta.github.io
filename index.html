@@ -32,6 +32,8 @@
     --k-magenta:#a3356a; --g-magenta:#f8eef3;
     --k-yellow:#8a6412;  --g-yellow:#f7f2e6;
 
+    --mix-green:#4a7a3c; --mix-violet:#6b4a9e;   /* C+Y and C+M */
+
     --ok:#2f7a52; --ok-soft:#e8f2ec;
     --alert:#a8392c; --alert-soft:#f8eeec;
 
@@ -47,6 +49,8 @@
     --k-cyan:#5fbccd;    --g-cyan:#111a1c;
     --k-magenta:#e58ab4; --g-magenta:#1e1318;
     --k-yellow:#d9b455;  --g-yellow:#1c1810;
+
+    --mix-green:#8fc47a; --mix-violet:#b39ae8;   /* C+Y and C+M */
 
     --ok:#5cc78c; --ok-soft:#12211a;
     --alert:#e07a68; --alert-soft:#241512;
@@ -379,13 +383,13 @@
     background:var(--line); transform:translateX(-.5px)}
   .tl-row{position:relative; display:flex; margin-bottom:30px}
   .tl-row::after{content:""; position:absolute; left:50%; top:24px; width:13px;
-    height:13px; border-radius:50%; background:var(--c);
+    height:13px; border-radius:50%; background:var(--bead, var(--c));
     box-shadow:0 0 0 4px var(--g); transform:translate(-50%,-50%); z-index:1}
   .tl-row.right{justify-content:flex-end}
   .tl-card{width:calc(50% - 34px); background:var(--surface);
-    border:1px solid var(--line); border-left:3px solid var(--c); border-radius:10px;
+    border:1px solid var(--line); border-left:3px solid var(--bead, var(--c)); border-radius:10px;
     padding:18px 20px; box-shadow:var(--shadow)}
-  .tl-row.right .tl-card{border-left:1px solid var(--line); border-right:3px solid var(--c)}
+  .tl-row.right .tl-card{border-left:1px solid var(--line); border-right:3px solid var(--bead, var(--c))}
   .tl-when{font-family:"Space Mono",monospace; font-size:10.5px; letter-spacing:.1em;
     color:var(--c); margin:0 0 6px}
   .tl-row.photo{margin-top:-12px}
@@ -430,9 +434,9 @@
     .tl-row,.tl-row.right{justify-content:flex-start}
     .tl-row::after{left:6px}
     .tl-photo{width:100%; margin-left:30px}
-    .tl-card{width:100%; margin-left:30px; border-left:3px solid var(--c);
+    .tl-card{width:100%; margin-left:30px; border-left:3px solid var(--bead, var(--c));
       border-right:1px solid var(--line)}
-    .tl-row.right .tl-card{border-left:3px solid var(--c); border-right:1px solid var(--line)}
+    .tl-row.right .tl-card{border-left:3px solid var(--bead, var(--c)); border-right:1px solid var(--line)}
     .gov{flex-direction:column}
     .gov-col{flex:1 1 auto; width:100%; padding-right:0; margin-bottom:22px}
     .gov-line{flex:0 0 2px; width:100%; height:2px; margin:0 0 30px;
@@ -764,13 +768,13 @@
   <p class="sec-note">Most recent first.</p>
 
   <div class="tl">
-    <div class="tl-row"><div class="tl-card">
+    <div class="tl-row" style="--bead:var(--k-key)"><div class="tl-card">
       <p class="tl-when">2025 &ndash; now</p>
       <strong>Optevo</strong>
       <span>Product Manager - Platform and AI</span>
     </div></div>
 
-    <div class="tl-row"><div class="tl-card">
+    <div class="tl-row" style="--bead:var(--k-cyan)"><div class="tl-card">
       <p class="tl-when">2025</p>
       <strong>Melbourne Business School</strong>
       <span>Graduate Diploma in Business Analytics</span>
@@ -781,13 +785,13 @@
       <figcaption>aah! finally dissected the first predictive analytics lecture</figcaption>
     </figure></div>
 
-    <div class="tl-row right"><div class="tl-card">
+    <div class="tl-row right" style="--bead:var(--mix-green)"><div class="tl-card">
       <p class="tl-when">2024</p>
       <strong>AGL Energy</strong>
       <span>Commercial Analyst, Credit and Affordability</span>
     </div></div>
 
-    <div class="tl-row"><div class="tl-card">
+    <div class="tl-row" style="--bead:var(--mix-violet)"><div class="tl-card">
       <p class="tl-when">2023</p>
       <strong>Stanford University</strong>
       <span>Summer Graduate Session, Sustainability Design Thinking and Technology Entrepreneurship</span>
@@ -798,7 +802,7 @@
       <figcaption>my first summer at stanford</figcaption>
     </figure></div>
 
-    <div class="tl-row"><div class="tl-card">
+    <div class="tl-row" style="--bead:var(--k-yellow)"><div class="tl-card">
       <p class="tl-when">2019 &ndash; 2023</p>
       <strong>NMIMS University, Mumbai</strong>
       <span>B.Tech, Computer Engineering</span>
