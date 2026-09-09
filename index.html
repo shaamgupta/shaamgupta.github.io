@@ -17,29 +17,42 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=Space+Mono:wght@400;700&display=swap">
 <style>
-  /* Cool paper, deep green primary, blue secondary.
-     --teal keeps its name for continuity; it is the secondary accent. */
+  /* Four chapters, four inks, drawn from CMYK but warmed off the process
+     primaries so they read as pigment rather than screen. Key, cyan, magenta,
+     yellow become espresso, petrol, berry, ochre. Each chapter also carries a
+     very light ground of its own hue. --ok and --alert are the only other
+     colours, and they mean a state, never a place. */
   :root{
-    --bg:#f2f5f3; --surface:#ffffff; --line:#d7ded9; --line-soft:#e7ece9;
-    --ink:#13181a; --muted:#566360; --faint:#627069;
-    --hue-green:#1c6b57; --hue-blue:#2b57c4; --hue-violet:#7a53bd;
-    --hue-rose:#a63b6b; --hue-gold:#8a6a17; --hue-clay:#a8552a;
-    --accent:var(--hue-green); --accent-soft:#e2eeea;
-    --teal:var(--hue-blue); --teal-soft:#e7edfa;
-    --dot:#d9e1dc; --shadow:0 1px 2px rgba(0,0,0,.04);
-    --c-optevo:var(--hue-green); --c-mbs:var(--hue-blue); --c-agl:var(--hue-violet);
-    --c-stanford:var(--hue-rose); --c-nmims:var(--hue-gold);
+    --bg:#f6f4f2; --surface:#fffefd; --line:#e2dbd4; --line-soft:#efeae4;
+    --ink:#241f1b; --muted:#5f574f; --faint:#6b625a;
+    --dot:#e2dcd4; --shadow:0 1px 2px rgba(0,0,0,.04);
+
+    --k-key:#4a3f34;     --g-key:#f1eee9;
+    --k-cyan:#14697a;    --g-cyan:#ecf3f4;
+    --k-magenta:#a3356a; --g-magenta:#f8eef3;
+    --k-yellow:#8a6412;  --g-yellow:#f7f2e6;
+
+    --ok:#2f7a52; --ok-soft:#e8f2ec;
+    --alert:#a8392c; --alert-soft:#f8eeec;
+
+    --accent:var(--k-key); --accent-soft:var(--g-key);
+    --teal:var(--k-cyan); --teal-soft:var(--g-cyan);
   }
   :root[data-theme="dark"]{
-    --bg:#0e1312; --surface:#161c1a; --line:#28322f; --line-soft:#1d2523;
-    --ink:#e8efec; --muted:#8f9e99; --faint:#77857f;
-    --hue-green:#4fc09b; --hue-blue:#7ea6f7; --hue-violet:#b19af0;
-    --hue-rose:#e58bb2; --hue-gold:#d4b45c; --hue-clay:#e0916a;
-    --accent:var(--hue-green); --accent-soft:#12241e;
-    --teal:var(--hue-blue); --teal-soft:#141b28;
-    --dot:#222b28; --shadow:none;
-    --c-optevo:var(--hue-green); --c-mbs:var(--hue-blue); --c-agl:var(--hue-violet);
-    --c-stanford:var(--hue-rose); --c-nmims:var(--hue-gold);
+    --bg:#16130f; --surface:#1e1a15; --line:#332c24; --line-soft:#241f19;
+    --ink:#f2ece4; --muted:#a89c8e; --faint:#8b8071;
+    --dot:#2a241c; --shadow:none;
+
+    --k-key:#d3c0a8;     --g-key:#1b1712;
+    --k-cyan:#5fbccd;    --g-cyan:#111a1c;
+    --k-magenta:#e58ab4; --g-magenta:#1e1318;
+    --k-yellow:#d9b455;  --g-yellow:#1c1810;
+
+    --ok:#5cc78c; --ok-soft:#12211a;
+    --alert:#e07a68; --alert-soft:#241512;
+
+    --accent:var(--k-key); --accent-soft:var(--g-key);
+    --teal:var(--k-cyan); --teal-soft:var(--g-cyan);
   }
 
   *{box-sizing:border-box}
@@ -55,9 +68,9 @@
   }
   .mono{font-family:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
   .wrap{max-width:1120px; margin:0 auto; padding:0 28px}
-  a{color:var(--accent); text-decoration:none}
+  a{color:var(--c, var(--accent)); text-decoration:none}
   a:hover{text-decoration:underline}
-  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
+  :focus-visible{outline:2px solid var(--c, var(--accent)); outline-offset:3px; border-radius:3px}
   img{max-width:100%}
 
   /* ---------- theme toggle ---------- */
@@ -161,14 +174,27 @@
 
   /* ---------- sections ---------- */
   /* .wrap also sets padding, and beats a bare `section` selector, so scope this. */
-  section.wrap{padding-top:92px; padding-bottom:60px; border-top:1px solid var(--line)}
-  section.wrap:last-of-type{padding-bottom:44px}
+  section.wrap{
+    padding-top:92px; padding-bottom:76px; position:relative;
+    background:var(--g); color:var(--ink);
+    /* bleed the chapter ground to the full viewport width without
+       creating horizontal overflow */
+    box-shadow:0 0 0 100vw var(--g);
+    clip-path:inset(0 -100vw);
+  }
+  #work{--c:var(--k-key); --g:var(--g-key)}
+  #research{--c:var(--k-cyan); --g:var(--g-cyan)}
+  #background{--c:var(--k-magenta); --g:var(--g-magenta)}
+  #activity{--c:var(--k-yellow); --g:var(--g-yellow)}
   .sec-kicker{
     font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.16em;
-    text-transform:uppercase; color:var(--k, var(--accent)); margin:0 0 12px;
+    text-transform:uppercase; color:var(--c); margin:0 0 12px;
+    display:flex; align-items:center; gap:9px;
   }
-  #work{--k:var(--hue-green)} #research{--k:var(--hue-blue)}
-  #background{--k:var(--hue-violet)} #activity{--k:var(--hue-rose)}
+  .sec-kicker::before{
+    content:""; width:9px; height:9px; border-radius:50%;
+    background:var(--c); flex-shrink:0;
+  }
   .sec-head{
     font-size:clamp(30px,4vw,40px); font-weight:300; letter-spacing:-.025em;
     line-height:1.1; margin:0 0 14px;
@@ -176,10 +202,7 @@
   .sec-note{color:var(--muted); font-size:16.5px; margin:0 0 46px; max-width:640px}
 
   /* ---------- project ---------- */
-  .project{
-    border-top:1px solid var(--line); padding:44px 0 8px;
-    --c:var(--accent);
-  }
+  .project{border-top:1px solid var(--line); padding:44px 0 8px}
   .project:first-of-type{border-top:none; padding-top:8px}
   .badge-row{display:flex; align-items:center; gap:11px; flex-wrap:wrap; margin:0 0 16px}
   .badge{
@@ -224,14 +247,14 @@
   .btn{
     font-family:"Space Mono",monospace; font-size:11.5px; letter-spacing:.08em;
     text-transform:uppercase; padding:11px 20px; border-radius:22px; cursor:pointer;
-    border:1.5px solid var(--teal); background:none; color:var(--teal);
+    border:1.5px solid var(--ok); background:none; color:var(--ok);
     transition:background .18s ease, color .18s ease, border-color .18s ease, filter .18s ease;
   }
-  .btn-fill{background:var(--teal); color:var(--bg); font-weight:700}
+  .btn-fill{background:var(--ok); color:var(--bg); font-weight:700}
   .btn-fill:hover{filter:brightness(1.1)}
   .btn-ghost{border-color:var(--line); color:var(--muted)}
   .btn-ghost:hover{border-color:var(--ink); color:var(--ink)}
-  .btn-danger{border-color:var(--accent); background:var(--accent); color:var(--bg); font-weight:700}
+  .btn-danger{border-color:var(--alert); background:var(--alert); color:var(--bg); font-weight:700}
   .btn-danger:hover{filter:brightness(.92)}
   .btn-line{border-color:var(--ink); color:var(--ink); background:none}
   .btn-line:hover{background:var(--ink); color:var(--bg)}
@@ -254,7 +277,7 @@
     text-transform:uppercase; color:var(--muted); margin:0 0 5px}
   .stat-value{font-size:38px; font-weight:300; letter-spacing:-.02em; color:var(--faint);
     margin:0; line-height:1.1}
-  .stat-value.on{color:var(--accent)}
+  .stat-value.on{color:var(--c)}
   .scalebar{height:38px; border-radius:3px; margin-bottom:7px}
   .scale-num{font-size:25px; font-weight:300; margin:0 0 26px}
 
@@ -263,22 +286,22 @@
   .gov-col{flex:0 0 236px; padding-right:32px}
   .gov-card{border:1px solid var(--line); background:var(--surface);
     border-radius:8px; padding:17px}
-  .gov-card.ai{border:1.5px solid var(--teal); background:var(--teal-soft)}
+  .gov-card.ai{border:1.5px solid var(--ok); background:var(--ok-soft)}
   .gov-line{flex:0 0 2px; position:relative; margin:0 34px;
     background:repeating-linear-gradient(to bottom,var(--line) 0 8px,transparent 8px 15px)}
-  .gov-line.hot{background:repeating-linear-gradient(to bottom,var(--accent) 0 8px,transparent 8px 15px)}
+  .gov-line.hot{background:repeating-linear-gradient(to bottom,var(--alert) 0 8px,transparent 8px 15px)}
   .gov-line-label{
     position:absolute; top:-26px; left:50%; transform:translateX(-50%);
     white-space:nowrap; font-family:"Space Mono",monospace; font-size:10px;
     letter-spacing:.11em; text-transform:uppercase; color:var(--muted); font-weight:700;
   }
-  .gov-line.hot .gov-line-label{color:var(--accent)}
+  .gov-line.hot .gov-line-label{color:var(--alert)}
   .gov-out{flex:1 1 260px; min-width:240px}
   .panel{border:1px solid var(--line); border-radius:8px; padding:22px;
     animation:pop .34s cubic-bezier(.2,.7,.3,1) both}
   .panel.idle{border-style:dashed; color:var(--muted); font-weight:300; animation:none}
-  .panel.blocked{border:1.5px solid var(--accent); background:var(--accent-soft)}
-  .panel.created{border:1.5px solid var(--teal); background:var(--teal-soft)}
+  .panel.blocked{border:1.5px solid var(--alert); background:var(--alert-soft)}
+  .panel.created{border:1.5px solid var(--ok); background:var(--ok-soft)}
   .panel-tag{font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.08em;
     text-transform:uppercase; margin:0 0 11px}
   @keyframes pop{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
@@ -289,7 +312,7 @@
 
   /* ---------- comp ag ---------- */
   .toggle-hint{font-family:"Space Mono",monospace; font-size:10.5px; letter-spacing:.1em;
-    text-transform:uppercase; color:var(--teal); margin:0 0 10px}
+    text-transform:uppercase; color:var(--c); margin:0 0 10px}
   .switch{display:inline-flex; border:1px solid var(--line); border-radius:24px;
     padding:4px; background:var(--surface); margin-bottom:32px; flex-wrap:wrap}
   .switch button{
@@ -297,7 +320,7 @@
     padding:10px 20px; border-radius:20px; border:none; cursor:pointer;
     background:none; color:var(--muted); transition:background .2s ease, color .2s ease;
   }
-  .switch button[aria-pressed="true"]{background:var(--ink); color:var(--bg)}
+  .switch button[aria-pressed="true"]{background:var(--c); color:var(--bg)}
   .device-wrap{min-height:300px}
   .fade-in{animation:fadein .38s cubic-bezier(.2,.7,.3,1) both}
   @keyframes fadein{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none}}
@@ -332,12 +355,12 @@
     letter-spacing:-.01em}
   .cite{font-family:"Space Mono",monospace; font-size:10.5px; line-height:1.8;
     color:var(--muted); margin:0}
-  .peek{display:inline-flex; align-items:center; gap:8px; color:var(--accent);
+  .peek{display:inline-flex; align-items:center; gap:8px; color:var(--c);
     font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.06em;
     text-transform:uppercase; margin:14px 0 0; font-weight:700;
-    border:1px solid var(--accent); border-radius:20px; padding:9px 16px;
+    border:1px solid var(--c); border-radius:20px; padding:9px 16px;
     transition:background .18s ease, color .18s ease}
-  .paper:hover .peek{background:var(--accent); color:var(--bg)}
+  .paper:hover .peek{background:var(--c); color:var(--bg)}
   .peek svg{transition:transform .25s ease}
   .reveal{display:grid; grid-template-rows:0fr;
     transition:grid-template-rows .32s cubic-bezier(.2,.7,.3,1)}
@@ -351,21 +374,13 @@
     line-height:1.55}
 
   /* ---------- writing / background / footer ---------- */
-  .soon{border:1px dashed var(--line); border-radius:10px; padding:26px;
-    background:var(--surface); max-width:620px}
-  .soon-tag{font-family:"Space Mono",monospace; font-size:10px; letter-spacing:.1em;
-    text-transform:uppercase; color:var(--accent); margin:0 0 12px}
-  .soon h3{font-size:24px; font-weight:300; line-height:1.28; margin:0 0 12px;
-    letter-spacing:-.015em}
-  .soon p{margin:0; color:var(--muted); font-size:15.5px; line-height:1.6}
   .tl{position:relative; padding:8px 0 10px}
   .tl::before{content:""; position:absolute; left:50%; top:0; bottom:0; width:1px;
     background:var(--line); transform:translateX(-.5px)}
   .tl-row{position:relative; display:flex; margin-bottom:30px}
-  .tl-row{--c:var(--accent)}
   .tl-row::after{content:""; position:absolute; left:50%; top:24px; width:13px;
     height:13px; border-radius:50%; background:var(--c);
-    box-shadow:0 0 0 4px var(--bg); transform:translate(-50%,-50%); z-index:1}
+    box-shadow:0 0 0 4px var(--g); transform:translate(-50%,-50%); z-index:1}
   .tl-row.right{justify-content:flex-end}
   .tl-card{width:calc(50% - 34px); background:var(--surface);
     border:1px solid var(--line); border-left:3px solid var(--c); border-radius:10px;
@@ -422,7 +437,7 @@
     .gov-col{flex:1 1 auto; width:100%; padding-right:0; margin-bottom:22px}
     .gov-line{flex:0 0 2px; width:100%; height:2px; margin:0 0 30px;
       background:repeating-linear-gradient(to right,var(--line) 0 8px,transparent 8px 15px)}
-    .gov-line.hot{background:repeating-linear-gradient(to right,var(--accent) 0 8px,transparent 8px 15px)}
+    .gov-line.hot{background:repeating-linear-gradient(to right,var(--alert) 0 8px,transparent 8px 15px)}
     .gov-line-label{top:8px}
     .sketch-band{flex-direction:column; gap:26px}
     .sketch-side{flex:1 1 auto; width:100%}
@@ -501,7 +516,7 @@
   <p class="sec-note">Three projects from my own work, most recent first. Each one starts with the problem I was actually handed, then what I did about it.</p>
 
   <!-- ---------- 01 Optevo ---------- -->
-  <article class="project" style="--c:var(--c-optevo)">
+  <article class="project">
     <div class="badge-row">
       <span class="badge">PROJECT 01 OF 03</span>
       <span class="where">My work at Optevo &middot; 2026</span>
@@ -534,10 +549,10 @@
       </div>
 
       <div class="gov-col">
-        <p class="side-head" style="color:var(--teal)">AI proposal &middot; held</p>
+        <p class="side-head" style="color:var(--ok)">AI proposal &middot; held</p>
         <div class="gov-card ai" id="proposalCard">
           <div style="font-size:16px;margin-bottom:7px">Draft the Q3 migration checklist</div>
-          <p class="mono" style="font-size:10px;color:var(--teal);line-height:1.65;margin:0">proposed, not a task<br>source: brief.md &sect;3</p>
+          <p class="mono" style="font-size:10px;color:var(--ok);line-height:1.65;margin:0">proposed, not a task<br>source: brief.md &sect;3</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:9px;margin-top:17px">
           <button class="btn btn-danger" id="btnDirect" type="button">Push straight to the list</button>
@@ -569,7 +584,7 @@
   </article>
 
   <!-- ---------- 02 AGL ---------- -->
-  <article class="project" style="--c:var(--c-agl)">
+  <article class="project">
     <div class="badge-row">
       <span class="badge">PROJECT 02 OF 03</span>
       <span class="where">My work at AGL Energy &middot; 2024</span>
@@ -621,9 +636,9 @@
         <p class="scale-num">$1.1 billion</p>
         <p class="mono" style="font-size:11px;margin:0 0 10px">forecast movement</p>
         <div class="scalebar" style="background:var(--line-soft);position:relative">
-          <div style="position:absolute;left:0;top:0;bottom:0;width:2%;background:var(--accent);border-radius:3px"></div>
+          <div style="position:absolute;left:0;top:0;bottom:0;width:2%;background:var(--c);border-radius:3px"></div>
         </div>
-        <p class="scale-num" style="color:var(--accent)">about 2%</p>
+        <p class="scale-num" style="color:var(--c)">about 2%</p>
         <p class="side-p">The interesting part was the gap between what you would assume and what the numbers suggested. It is a forecast, not a realised outcome, and I have no visibility into whether it was picked up afterwards.</p>
       </div>
     </div>
@@ -640,7 +655,7 @@
   </article>
 
   <!-- ---------- 03 Comp Ag ---------- -->
-  <article class="project" style="--c:var(--c-nmims)">
+  <article class="project">
     <div class="badge-row">
       <span class="badge">PROJECT 03 OF 03</span>
       <span class="where">My work with Team UAS NMIMS &middot; Techfest, IIT Bombay &middot; 2020</span>
@@ -668,7 +683,7 @@
     <div class="split tight">
       <div class="split-main"><div class="device-wrap" id="device" aria-live="polite"></div></div>
       <div class="split-side">
-        <p class="side-head" style="color:var(--accent)" id="noteLabel">The constraint that changed the hardware</p>
+        <p class="side-head" style="color:var(--c)" id="noteLabel">The constraint that changed the hardware</p>
         <p style="font-size:18px;line-height:1.56;font-weight:300;margin:0 0 24px;text-wrap:pretty" id="noteBody">Once the phone goes, the screen has to come back to the device, and the readings have to be legible at a glance to someone who may not read at all. That is why the handheld carries its own display, laid out as one panel rather than a menu.</p>
         <p class="side-p" style="border-top:1px solid var(--line);padding-top:20px">We narrowed to wheat across four contiguous states and I wrote down why. The marketplace piece came out of the 2020 farm ordinances, which opened up trade outside the regulated mandis and left many farmers worried the price floor they had relied on would erode in practice. I designed that flow.</p>
         <p class="side-p" style="color:var(--muted);margin-top:14px">Honest about what it was: a working prototype producing live sensor readings, not a calibrated or field-validated system. Fifth nationally. It did not go further.</p>
@@ -681,8 +696,8 @@
         <p class="mono" style="font-size:10px;color:var(--muted);margin:12px 0 0">The design sketch, 2020. Drawn before any of it existed.</p>
       </div>
       <div class="sketch-side">
-        <p class="side-head" style="color:var(--accent)">Where the constraint shows up</p>
-        <p style="font-size:17.5px;line-height:1.56;font-weight:300;margin:0 0 20px;text-wrap:pretty">On the right of the sketch, the handheld is annotated <span class="mono" style="font-size:14px;color:var(--accent)">display for instructions</span>. The screen was on the device from the first drawing, not bolted on later once we noticed the problem.</p>
+        <p class="side-head" style="color:var(--c)">Where the constraint shows up</p>
+        <p style="font-size:17.5px;line-height:1.56;font-weight:300;margin:0 0 20px;text-wrap:pretty">On the right of the sketch, the handheld is annotated <span class="mono" style="font-size:14px;color:var(--c)">display for instructions</span>. The screen was on the device from the first drawing, not bolted on later once we noticed the problem.</p>
         <p class="side-p" style="color:var(--muted)">I am not a hardware engineer and did not build it. I drew what it needed to do and wrote the case for why.</p>
       </div>
     </div>
@@ -717,12 +732,12 @@
           <g font-family="Space Mono, monospace" font-size="10.5">
             <text x="0" y="12" fill="var(--muted)">Traditional CNN</text>
             <line x1="0" y1="26" x2="460" y2="26" stroke="var(--line)" stroke-width="6" stroke-linecap="round"></line>
-            <line x1="160" y1="26" x2="432" y2="26" stroke="var(--accent)" stroke-width="6" stroke-linecap="round"></line>
+            <line x1="160" y1="26" x2="432" y2="26" stroke="var(--c)" stroke-width="6" stroke-linecap="round"></line>
             <text x="150" y="44" fill="var(--muted)" text-anchor="middle">85.6%</text>
             <text x="440" y="44" fill="var(--muted)" text-anchor="end">96.7%</text>
             <text x="0" y="72" fill="var(--muted)">Experimental architectures</text>
             <line x1="0" y1="86" x2="460" y2="86" stroke="var(--line)" stroke-width="6" stroke-linecap="round"></line>
-            <line x1="288" y1="86" x2="424" y2="86" stroke="var(--accent)" stroke-width="6" stroke-linecap="round"></line>
+            <line x1="288" y1="86" x2="424" y2="86" stroke="var(--c)" stroke-width="6" stroke-linecap="round"></line>
             <text x="278" y="104" fill="var(--muted)" text-anchor="middle">91.4%</text>
             <text x="432" y="104" fill="var(--muted)" text-anchor="end">96.4%</text>
           </g>
@@ -749,13 +764,13 @@
   <p class="sec-note">Most recent first.</p>
 
   <div class="tl">
-    <div class="tl-row" style="--c:var(--c-optevo)"><div class="tl-card">
+    <div class="tl-row"><div class="tl-card">
       <p class="tl-when">2025 &ndash; now</p>
       <strong>Optevo</strong>
       <span>Product Manager - Platform and AI</span>
     </div></div>
 
-    <div class="tl-row" style="--c:var(--c-mbs)"><div class="tl-card">
+    <div class="tl-row"><div class="tl-card">
       <p class="tl-when">2025</p>
       <strong>Melbourne Business School</strong>
       <span>Graduate Diploma in Business Analytics</span>
@@ -766,13 +781,13 @@
       <figcaption>aah! finally dissected the first predictive analytics lecture</figcaption>
     </figure></div>
 
-    <div class="tl-row right" style="--c:var(--c-agl)"><div class="tl-card">
+    <div class="tl-row right"><div class="tl-card">
       <p class="tl-when">2024</p>
       <strong>AGL Energy</strong>
       <span>Commercial Analyst, Credit and Affordability</span>
     </div></div>
 
-    <div class="tl-row" style="--c:var(--c-stanford)"><div class="tl-card">
+    <div class="tl-row"><div class="tl-card">
       <p class="tl-when">2023</p>
       <strong>Stanford University</strong>
       <span>Summer Graduate Session, Sustainability Design Thinking and Technology Entrepreneurship</span>
@@ -783,7 +798,7 @@
       <figcaption>my first summer at stanford</figcaption>
     </figure></div>
 
-    <div class="tl-row" style="--c:var(--c-nmims)"><div class="tl-card">
+    <div class="tl-row"><div class="tl-card">
       <p class="tl-when">2019 &ndash; 2023</p>
       <strong>NMIMS University, Mumbai</strong>
       <span>B.Tech, Computer Engineering</span>
@@ -893,7 +908,7 @@
         h = chart.clientHeight - 12;
     counts.forEach(function (c, i) {
       bars[i].style.height = Math.max(3, Math.round((c / max) * h)) + 'px';
-      bars[i].style.background = (i >= 11 && i <= 14) ? 'var(--accent)' : 'var(--line)';
+      bars[i].style.background = (i >= 11 && i <= 14) ? 'var(--c)' : 'var(--line)';
     });
     runNo++;
     mcMean.textContent = mean.toFixed(1) + '%';
@@ -924,16 +939,16 @@
 
   var views = {
     idle: '<div class="panel idle">Nothing here yet. Nothing gets here without a person putting it here.</div>',
-    blocked: '<div class="panel blocked"><p class="panel-tag" style="color:var(--accent)">Blocked</p>' +
+    blocked: '<div class="panel blocked"><p class="panel-tag" style="color:var(--alert)">Blocked</p>' +
       '<div style="font-size:17px;line-height:1.58;font-weight:300">The AI service has no ability to create, change, approve or convert a task. Not a permission it is missing, a path that does not exist.</div></div>',
     review: '<div class="panel"><p class="panel-tag" style="color:var(--muted)">Waiting on a person</p>' +
       '<div style="font-size:18px;margin-bottom:6px">Draft the Q3 migration checklist</div>' +
       '<p class="mono" style="font-size:10.5px;color:var(--muted);margin:0 0 19px">editable before it becomes anything</p>' +
       '<div style="display:flex;gap:9px;flex-wrap:wrap"><button class="btn btn-fill" data-go="created" type="button">Approve</button>' +
       '<button class="btn btn-ghost" data-go="rejected" type="button">Reject</button></div></div>',
-    created: '<div class="panel created"><p class="panel-tag" style="color:var(--teal)">Task created</p>' +
+    created: '<div class="panel created"><p class="panel-tag" style="color:var(--ok)">Task created</p>' +
       '<div style="font-size:18px;margin-bottom:9px">Draft the Q3 migration checklist</div>' +
-      '<p class="mono" style="font-size:10.5px;color:var(--teal);line-height:1.7;margin:0">created via the existing task API<br>tagged AI-assisted, links back to brief.md &sect;3</p>' +
+      '<p class="mono" style="font-size:10.5px;color:var(--ok);line-height:1.7;margin:0">created via the existing task API<br>tagged AI-assisted, links back to brief.md &sect;3</p>' +
       '<p style="font-size:15.5px;line-height:1.6;font-weight:300;color:var(--muted);margin:15px 0 0">Three weeks from now, someone can still answer why this is on the board.</p></div>',
     rejected: '<div class="panel"><p class="panel-tag" style="color:var(--muted)">Rejected</p>' +
       '<div style="font-size:17px;line-height:1.58;font-weight:300;color:var(--muted)">Nothing was created. The proposal is gone and the board never knew about it.</div></div>'
@@ -982,7 +997,7 @@
     '<div><dt>MOIST</dt><dd>44%</dd></div><div><dt>pH</dt><dd>6.8</dd></div>' +
     '</dl></div>' +
     '<div style="display:flex;gap:9px;margin-top:15px"><div style="flex:1 1 auto;height:26px;background:var(--line);border-radius:5px"></div>' +
-    '<div style="width:56px;height:26px;background:var(--accent);border-radius:5px"></div></div></div>' +
+    '<div style="width:56px;height:26px;background:var(--c);border-radius:5px"></div></div></div>' +
     '<p class="mono" style="font-size:10px;color:var(--muted);margin:12px 0 0;line-height:1.7">handheld unit &middot; Arduino Nano &middot; screen built in<br>one glanceable panel, no menu to navigate, no text to read</p></div>';
 
   var LABEL_ON = 'The version that does not work',
