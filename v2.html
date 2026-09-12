@@ -1070,13 +1070,9 @@
 
   /* ---------------- reveal on scroll ---------------- */
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var targets = document.querySelectorAll('.reveal-up, .tl-row, .paper');
+  var targets = document.querySelectorAll('.reveal-up, .tl-row');
 
-  function reveal(el) {
-    el.classList.add('in');
-    // papers open themselves as you reach them; hover and tap still toggle
-    if (el.classList.contains('paper')) el.setAttribute('aria-expanded', 'true');
-  }
+  function reveal(el) { el.classList.add('in'); }
 
   if (!('IntersectionObserver' in window) || reduce) {
     for (var r = 0; r < targets.length; r++) reveal(targets[r]);
