@@ -241,6 +241,27 @@
   .pa-col:nth-child(2) .pa-label{color:var(--muted)}
   .pa p{margin:0; font-size:16.5px; line-height:1.62; font-weight:300; text-wrap:pretty}
   .chips{display:flex; flex-wrap:wrap; gap:7px; margin:26px 0 0}
+  .chips-lead{margin:20px 0 0}
+  .summary{font-size:18px; line-height:1.6; font-weight:300; max-width:720px;
+    margin:0 0 4px; text-wrap:pretty}
+  .expand{
+    display:inline-flex; align-items:center; gap:10px; margin:26px 0 0;
+    font-family:"Space Mono",monospace; font-size:11.5px; letter-spacing:.07em;
+    text-transform:uppercase; font-weight:700; cursor:pointer;
+    background:var(--c); color:var(--bg); border:1.5px solid var(--c);
+    border-radius:24px; padding:13px 22px;
+    transition:filter .18s ease, background .18s ease, color .18s ease;
+  }
+  .expand:hover{filter:brightness(1.12)}
+  .expand svg{width:15px; height:15px; transition:transform .28s ease; flex-shrink:0}
+  .expand[aria-expanded="true"]{background:transparent; color:var(--c)}
+  .expand[aria-expanded="true"] svg{transform:rotate(180deg)}
+  .proj-full{display:grid; grid-template-rows:0fr;
+    transition:grid-template-rows .42s cubic-bezier(.2,.7,.3,1)}
+  .proj-full > div{overflow:hidden; min-height:0}
+  .project[data-open="true"] .proj-full{grid-template-rows:1fr}
+  .proj-full .pa{margin-top:34px}
+  @media (prefers-reduced-motion:reduce){ .proj-full{transition:none} }
   .chip{font-family:"Space Mono",monospace; font-size:10.5px; line-height:1;
     padding:7px 11px; border-radius:20px; white-space:nowrap}
   .chip-m{background:var(--accent-soft); color:var(--c); font-weight:700;
@@ -538,7 +559,22 @@
     </div>
     <h2 class="proj">An AI that drafts your tasks but is never allowed to create them</h2>
     <p class="myrole">My role: Product Manager, Platform and AI. Product, design, backend, AI, two frontend engineers and two QA, across three timezones.</p>
-    <div class="reveal-up">
+    <p class="summary">Teams were retyping long briefs and threads into tasks by hand, and losing any trace of why a task existed. I argued against letting the model write straight into the work queue, and drew a line instead: the AI proposes, a person approves, and only then does the platform create anything.</p>
+
+    <div class="chips chips-lead">
+      <span class="chip chip-m">AI governance design</span>
+      <span class="chip chip-m">Release readiness</span>
+      <span class="chip chip-m">Scope negotiation</span>
+      <span class="chip chip-m">QA triage</span>
+      <span class="chip chip-t">Azure DevOps</span>
+      <span class="chip chip-t">Jira</span>
+      <span class="chip chip-t">Figma</span>
+    </div>
+
+    <button class="expand" type="button" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg><span class="expand-label">Read the full story and try to break it</span></button>
+
+    <div class="proj-full"><div>
+
     <div class="pa">
       <div class="pa-col">
         <p class="pa-label">The problem</p>
@@ -585,17 +621,7 @@
     </div>
 
     <p style="font-size:17px;line-height:1.62;font-weight:300;color:var(--muted);max-width:780px;margin:40px 0 0;text-wrap:pretty">I argued for that shape before the build started. It shipped on the committed date, with ten user stories passing, four blockers and three polish items closed with retest proof, and an independent QA re-test of nineteen items. The go/no-go call itself sat with the product owner.</p>
-
-    <div class="chips">
-      <span class="chip chip-m">AI governance design</span>
-      <span class="chip chip-m">Release readiness</span>
-      <span class="chip chip-m">Scope negotiation</span>
-      <span class="chip chip-m">QA triage</span>
-      <span class="chip chip-t">Azure DevOps</span>
-      <span class="chip chip-t">Jira</span>
-      <span class="chip chip-t">Figma</span>
-    </div>
-    </div>
+    </div></div>
   </article>
 
   <!-- ---------- 02 AGL ---------- -->
@@ -606,7 +632,21 @@
     </div>
     <h2 class="proj">Forecasting what a $1.1&nbsp;billion rebate would do to the debt book</h2>
     <p class="myrole">My role: Commercial Analyst, Credit and Affordability. Team of four, five weeks.</p>
-    <div class="reveal-up">
+    <p class="summary">AGL needed to know whether a $1.1&nbsp;billion government rebate would genuinely pay down its debt book, or be absorbed by customers already struggling. I argued for simulating the range rather than handing over a single number, because a provisioning decision needs to know how wrong the forecast could be.</p>
+
+    <div class="chips chips-lead">
+      <span class="chip chip-m">Monte Carlo simulation</span>
+      <span class="chip chip-m">Bootstrapping</span>
+      <span class="chip chip-m">Segment transition modelling</span>
+      <span class="chip chip-t">Python</span>
+      <span class="chip chip-t">SQL</span>
+      <span class="chip chip-t">Excel</span>
+    </div>
+
+    <button class="expand" type="button" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg><span class="expand-label">Read the full story and run the simulation</span></button>
+
+    <div class="proj-full"><div>
+
     <div class="pa">
       <div class="pa-col">
         <p class="pa-label">The problem</p>
@@ -657,16 +697,7 @@
         <p class="side-p">The interesting part was the gap between what you would assume and what the numbers suggested. It is a forecast, not a realised outcome, and I have no visibility into whether it was picked up afterwards.</p>
       </div>
     </div>
-
-    <div class="chips">
-      <span class="chip chip-m">Monte Carlo simulation</span>
-      <span class="chip chip-m">Bootstrapping</span>
-      <span class="chip chip-m">Segment transition modelling</span>
-      <span class="chip chip-t">Python</span>
-      <span class="chip chip-t">SQL</span>
-      <span class="chip chip-t">Excel</span>
-    </div>
-    </div>
+    </div></div>
   </article>
 
   <!-- ---------- 03 Comp Ag ---------- -->
@@ -677,7 +708,22 @@
     </div>
     <h2 class="proj">One assumption, and the whole thing changes shape</h2>
     <p class="myrole">My role: shaped the solution, ran the timeline, designed the marketplace flow, wrote the report. The hardware build sat with my teammates.</p>
-    <div class="reveal-up">
+    <p class="summary">Wheat farmers across four Indian states were making decisions from experience rather than measurement, and a large share of them did not own a phone. Taking the smartphone away is what shaped the design: the screen had to come back onto the device, legible at a glance without reading text.</p>
+
+    <div class="chips chips-lead">
+      <span class="chip chip-m">Product discovery</span>
+      <span class="chip chip-m">UI flow design</span>
+      <span class="chip chip-m">Embedded sensing</span>
+      <span class="chip chip-t">Python</span>
+      <span class="chip chip-t">Flask</span>
+      <span class="chip chip-t">Arduino / Node MCU</span>
+      <span class="chip chip-t">Heroku</span>
+    </div>
+
+    <button class="expand" type="button" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg><span class="expand-label">Read the full story and flip the assumption</span></button>
+
+    <div class="proj-full"><div>
+
     <div class="pa">
       <div class="pa-col">
         <p class="pa-label">The problem</p>
@@ -716,17 +762,7 @@
         <p class="side-p" style="color:var(--muted)">I am not a hardware engineer and did not build it. I drew what it needed to do and wrote the case for why.</p>
       </div>
     </div>
-
-    <div class="chips">
-      <span class="chip chip-m">Product discovery</span>
-      <span class="chip chip-m">UI flow design</span>
-      <span class="chip chip-m">Embedded sensing</span>
-      <span class="chip chip-t">Python</span>
-      <span class="chip chip-t">Flask</span>
-      <span class="chip chip-t">Arduino / Node MCU</span>
-      <span class="chip chip-t">Heroku</span>
-    </div>
-    </div>
+    </div></div>
   </article>
 </section>
 
@@ -833,6 +869,7 @@
   <h2 class="sec-head">Recent activity</h2>
   <p class="sec-note">What I have been thinking about lately, straight from the source. <a href="https://www.linkedin.com/in/shambhavi-gupta-pm/">All of it on LinkedIn</a>.</p>
   <div class="feed">
+    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7503726158425870336?collapsed=1" frameborder="0" allowfullscreen="" title="Post by Shambhavi Gupta on LinkedIn" loading="lazy"></iframe>
     <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7501515102404370432?collapsed=1" frameborder="0" allowfullscreen="" title="Post by Shambhavi Gupta on LinkedIn" loading="lazy"></iframe>
     <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7495527086930001920?collapsed=1" frameborder="0" allowfullscreen="" title="Post by Shambhavi Gupta on LinkedIn" loading="lazy"></iframe>
     <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7493653999800381440?collapsed=1" frameborder="0" allowfullscreen="" title="Post by Shambhavi Gupta on LinkedIn" loading="lazy"></iframe>
@@ -1076,6 +1113,27 @@
     addEventListener('resize', sweep);
     document.addEventListener('visibilitychange', sweep);
     sweep();
+  }
+
+  /* ---------------- project expand ---------------- */
+  var projects = document.querySelectorAll('.project');
+  for (var q = 0; q < projects.length; q++) {
+    (function (art) {
+      var btn = art.querySelector('.expand'),
+          label = btn.querySelector('.expand-label'),
+          shut = btn.textContent.trim();
+      btn.addEventListener('click', function () {
+        var open = art.getAttribute('data-open') === 'true';
+        art.setAttribute('data-open', open ? 'false' : 'true');
+        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+        label.textContent = open ? shut : 'Hide the detail';
+        // collapsing from below the fold would otherwise leave the reader stranded
+        if (open) {
+          var top = art.getBoundingClientRect().top;
+          if (top < 0) art.scrollIntoView({ block: 'start', behavior: 'smooth' });
+        }
+      });
+    })(projects[q]);
   }
 
   /* ---------------- papers ---------------- */
