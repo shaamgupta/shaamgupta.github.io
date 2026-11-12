@@ -33,7 +33,8 @@
     --k-magenta:#a3356a; --g-magenta:#f8eef3;
     --k-yellow:#8a6412;  --g-yellow:#f7f2e6;
 
-    --mix-green:#4a7a3c; --mix-violet:#6b4a9e;   /* C+Y and C+M */
+    --mix-green:#4a7a3c; --g-green:#eef3ea;
+    --mix-violet:#6b4a9e;   /* C+Y and C+M */
 
     --ok:#2f7a52; --ok-soft:#e8f2ec;
     --alert:#a8392c; --alert-soft:#f8eeec;
@@ -51,7 +52,8 @@
     --k-magenta:#e58ab4; --g-magenta:#1e1318;
     --k-yellow:#d9b455;  --g-yellow:#1c1810;
 
-    --mix-green:#8fc47a; --mix-violet:#b39ae8;   /* C+Y and C+M */
+    --mix-green:#8fc47a; --g-green:#141a12;
+    --mix-violet:#b39ae8;   /* C+Y and C+M */
 
     --ok:#5cc78c; --ok-soft:#12211a;
     --alert:#e07a68; --alert-soft:#241512;
@@ -197,6 +199,7 @@
     clip-path:inset(0 -100vw);
   }
   #work{--c:var(--k-key); --g:var(--g-key)}
+  #analysis{--c:var(--mix-green); --g:var(--g-green)}
   #research{--c:var(--k-cyan); --g:var(--g-cyan)}
   #background{--c:var(--k-magenta); --g:var(--g-magenta)}
   #activity{--c:var(--k-yellow); --g:var(--g-yellow)}
@@ -224,8 +227,8 @@
     background:var(--c); color:var(--bg); padding:6px 11px; border-radius:4px;
     white-space:nowrap;
   }
-  .where{font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.09em;
-    text-transform:uppercase; color:var(--muted)}
+  .where{font-family:"Space Mono",monospace; font-size:12.5px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--ink); font-weight:700}
   h2.proj{font-size:clamp(30px,4.4vw,46px); line-height:1.1; font-weight:300;
     letter-spacing:-.025em; margin:0 0 14px; text-wrap:pretty}
   .myrole{font-family:"Space Mono",monospace; font-size:12px; color:var(--c);
@@ -242,6 +245,16 @@
   .pa p{margin:0; font-size:16.5px; line-height:1.62; font-weight:300; text-wrap:pretty}
   .chips{display:flex; flex-wrap:wrap; gap:7px; margin:26px 0 0}
   .chips-lead{margin:20px 0 0}
+  .an-grid{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:20px}
+  @media (max-width:760px){ .an-grid{grid-template-columns:minmax(0, 1fr)} }
+  .an-card{background:var(--surface); border:1px solid var(--line);
+    border-top:3px solid var(--c); border-radius:10px; padding:22px 24px}
+  .an-card h3{font-size:19px; font-weight:400; letter-spacing:-.01em; margin:0 0 4px}
+  .an-when{font-family:"Space Mono",monospace; font-size:10.5px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); margin:0 0 12px}
+  .an-card p{margin:0; font-size:16px; line-height:1.62; font-weight:300; text-wrap:pretty}
+  .an-models{font-family:"Space Mono",monospace; font-size:10.5px; line-height:1.9;
+    color:var(--c); margin:14px 0 0; letter-spacing:.02em}
   .summary{font-size:18px; line-height:1.6; font-weight:300; max-width:720px;
     margin:0 0 4px; text-wrap:pretty}
   .expand{
@@ -568,7 +581,7 @@
       <span class="badge">PROJECT 01 OF 03</span>
       <span class="where">My work at Optevo &middot; 2026</span>
     </div>
-    <h2 class="proj">An AI that drafts your tasks but is never allowed to create them</h2>
+    <h2 class="proj">Drafting tasks from documents, without letting the AI create them</h2>
     <p class="myrole">My role: Product Manager, Platform and AI. Product, design, backend, AI, two frontend engineers and two QA, across three timezones.</p>
     <p class="summary">Teams were retyping long briefs and threads into tasks by hand, and losing any trace of why a task existed. I argued against letting the model write straight into the work queue, and drew a line instead: the AI proposes, a person approves, and only then does the platform create anything.</p>
 
@@ -717,7 +730,7 @@
       <span class="badge">PROJECT 03 OF 03</span>
       <span class="where">My work with Team UAS NMIMS &middot; Techfest, IIT Bombay &middot; 2020</span>
     </div>
-    <h2 class="proj">One assumption, and the whole thing changes shape</h2>
+    <h2 class="proj">Soil sensors for wheat farmers who do not own a phone</h2>
     <p class="myrole">My role: shaped the solution, ran the timeline, designed the marketplace flow, wrote the report. The hardware build sat with my teammates.</p>
     <p class="summary">Wheat farmers across four Indian states were making decisions from experience rather than measurement, and a large share of them did not own a phone. Taking the smartphone away is what shaped the design: the screen had to come back onto the device, legible at a glance without reading text.</p>
 
@@ -777,9 +790,46 @@
   </article>
 </section>
 
+<!-- ===================== ANALYSIS ===================== -->
+<section id="analysis" class="wrap">
+  <p class="sec-kicker">02 &ndash; Analysis</p>
+  <h2 class="sec-head">Working with data</h2>
+  <p class="sec-note">The AGL project above is where this met a real commercial decision. The rest is from my Master of Business Analytics, finishing December 2026.</p>
+
+  <div class="an-grid reveal-up">
+    <div class="an-card">
+      <h3>Risk analytics</h3>
+      <p class="an-when">Melbourne Business School &middot; 2026</p>
+      <p>Fitted GARCH(1,1) models to equity returns, joined them with a Gaussian copula, and used the result to estimate one-month-ahead portfolio Value at Risk. The Gaussian copula is the model the 2008 crisis made famous for understating joint tail risk, which is most of the reason it is worth fitting yourself rather than only reading about.</p>
+      <p class="an-models">GARCH(1,1) &middot; Gaussian copula &middot; Value at Risk &middot; mean-variance portfolios &middot; R</p>
+    </div>
+
+    <div class="an-card">
+      <h3>Supply chain analytics</h3>
+      <p class="an-when">Melbourne Business School &middot; 2026</p>
+      <p>Ordering under uncertain demand. I built a counterexample showing that the mean and standard deviation of demand do not determine the optimal order, then showed that averaging two candidate distributions&rsquo; optimal quantities is not itself optimal, and worked out why.</p>
+      <p class="an-models">Newsvendor model &middot; critical ratio &middot; service levels &middot; scenario analysis</p>
+    </div>
+
+    <div class="an-card">
+      <h3>Marketing analytics</h3>
+      <p class="an-when">Melbourne Business School &middot; 2026</p>
+      <p>Whether display advertising actually causes purchases, measured from a controlled experiment rather than from correlations sitting in the log. Alongside attribution across touchpoints, customer lifetime value, conjoint and segmentation.</p>
+      <p class="an-models">Controlled experiment &middot; touchpoint attribution &middot; CLV &middot; conjoint analysis</p>
+    </div>
+
+    <div class="an-card">
+      <h3>Causal analytics</h3>
+      <p class="an-when">Melbourne Business School &middot; 2026</p>
+      <p>Estimating effects from data nobody randomised. Most of the work is deciding what to control for and then testing that decision rather than running the model, and the honest output is usually a range with its assumptions attached.</p>
+      <p class="an-models">DAGs &middot; propensity score weighting &middot; difference-in-differences &middot; regression discontinuity &middot; instrumental variables &middot; matching</p>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== RESEARCH ===================== -->
 <section id="research" class="wrap">
-  <p class="sec-kicker">02 &ndash; Research</p>
+  <p class="sec-kicker">03 &ndash; Research</p>
   <h2 class="sec-head">Two peer-reviewed papers</h2>
   <p class="sec-note">On both I built the models, worked out the analytical rationale, and wrote most of the paper.</p>
 
@@ -826,7 +876,7 @@
 
 <!-- ===================== BACKGROUND ===================== -->
 <section id="background" class="wrap">
-  <p class="sec-kicker">03 &ndash; Background</p>
+  <p class="sec-kicker">04 &ndash; Background</p>
   <h2 class="sec-head">How I got here</h2>
   <p class="sec-note">Most recent first.</p>
 
@@ -851,7 +901,7 @@
 
     <div class="tl-row right photo"><figure class="tl-photo">
       <img src="img/mbs.jpg" alt="Shambhavi Gupta celebrating in front of a whiteboard covered in predictive analytics derivations" loading="lazy">
-      <figcaption>aah! finally dissected the first predictive analytics lecture</figcaption>
+      <figcaption>aah! finally dissected the first predictive analytics lecture. it only got more intense after this, no time left to celebrate with photos</figcaption>
     </figure></div>
 
     <div class="tl-row right" style="--bead:var(--mix-green)"><div class="tl-card">
@@ -887,7 +937,7 @@
 
 <!-- ===================== ACTIVITY ===================== -->
 <section id="activity" class="wrap">
-  <p class="sec-kicker">04 &ndash; Lately</p>
+  <p class="sec-kicker">05 &ndash; Lately</p>
   <h2 class="sec-head">Recent activity</h2>
   <p class="sec-note">What I have been thinking about lately, straight from the source. <a href="https://www.linkedin.com/in/shambhavi-gupta-pm/">All of it on LinkedIn</a>.</p>
   <div class="feed">
