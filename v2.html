@@ -97,6 +97,8 @@
     transition:border-color .18s ease, color .18s ease;
   }
   .navlink:hover{border-color:var(--ink); color:var(--ink); text-decoration:none}
+  .navlink[aria-current="page"]{border-color:var(--c, var(--accent));
+    color:var(--c, var(--accent)); font-weight:700}
   .topbar-in{gap:10px}
 
   .theme-toggle{
@@ -514,6 +516,7 @@
 
 <div class="topbar" id="topbar">
   <div class="topbar-in">
+    <a class="navlink" href="/v2.html" aria-current="page">Work</a>
     <a class="navlink" href="/v2-publications/">Publications</a>
     <a class="navlink" href="/v2-about.html">About</a>
     <button class="theme-toggle" id="themeBtn" type="button" aria-label="Switch to dark mode">

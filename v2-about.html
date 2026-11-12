@@ -32,7 +32,8 @@
     --k-magenta:#a3356a; --g-magenta:#f8eef3;
     --k-yellow:#8a6412;  --g-yellow:#f7f2e6;
 
-    --mix-green:#4a7a3c; --mix-violet:#6b4a9e;   /* C+Y and C+M */
+    --mix-green:#4a7a3c; --g-green:#eef3ea;
+    --mix-violet:#6b4a9e;   /* C+Y and C+M */
 
     --ok:#2f7a52; --ok-soft:#e8f2ec;
     --alert:#a8392c; --alert-soft:#f8eeec;
@@ -50,7 +51,8 @@
     --k-magenta:#e58ab4; --g-magenta:#1e1318;
     --k-yellow:#d9b455;  --g-yellow:#1c1810;
 
-    --mix-green:#8fc47a; --mix-violet:#b39ae8;   /* C+Y and C+M */
+    --mix-green:#8fc47a; --g-green:#141a12;
+    --mix-violet:#b39ae8;   /* C+Y and C+M */
 
     --ok:#5cc78c; --ok-soft:#12211a;
     --alert:#e07a68; --alert-soft:#241512;
@@ -87,6 +89,17 @@
     max-width:1120px; margin:0 auto; padding:12px 28px;
     display:flex; justify-content:flex-end; align-items:center; gap:12px;
   }
+  .navlink{
+    font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); text-decoration:none;
+    border:1px solid var(--line); border-radius:20px; padding:8px 15px;
+    transition:border-color .18s ease, color .18s ease;
+  }
+  .navlink:hover{border-color:var(--ink); color:var(--ink); text-decoration:none}
+  .navlink[aria-current="page"]{border-color:var(--c, var(--accent));
+    color:var(--c, var(--accent)); font-weight:700}
+  .topbar-in{gap:10px}
+
   .theme-toggle{
     display:inline-flex; align-items:center; gap:7px; cursor:pointer;
     font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.08em;
@@ -187,6 +200,7 @@
     clip-path:inset(0 -100vw);
   }
   #work{--c:var(--k-key); --g:var(--g-key)}
+  #analysis{--c:var(--mix-green); --g:var(--g-green)}
   #research{--c:var(--k-cyan); --g:var(--g-cyan)}
   #background{--c:var(--k-magenta); --g:var(--g-magenta)}
   #activity{--c:var(--k-yellow); --g:var(--g-yellow)}
@@ -214,8 +228,8 @@
     background:var(--c); color:var(--bg); padding:6px 11px; border-radius:4px;
     white-space:nowrap;
   }
-  .where{font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.09em;
-    text-transform:uppercase; color:var(--muted)}
+  .where{font-family:"Space Mono",monospace; font-size:12.5px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--ink); font-weight:700}
   h2.proj{font-size:clamp(30px,4.4vw,46px); line-height:1.1; font-weight:300;
     letter-spacing:-.025em; margin:0 0 14px; text-wrap:pretty}
   .myrole{font-family:"Space Mono",monospace; font-size:12px; color:var(--c);
@@ -231,6 +245,44 @@
   .pa-col:nth-child(2) .pa-label{color:var(--muted)}
   .pa p{margin:0; font-size:16.5px; line-height:1.62; font-weight:300; text-wrap:pretty}
   .chips{display:flex; flex-wrap:wrap; gap:7px; margin:26px 0 0}
+  .chips-lead{margin:20px 0 0}
+  .an-grid{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:34px 44px}
+  @media (max-width:760px){ .an-grid{grid-template-columns:minmax(0, 1fr)} }
+  .an-card{border-top:2px solid var(--c); padding:18px 0 0}
+  .an-card h3{font-size:19px; font-weight:400; letter-spacing:-.01em; margin:0 0 8px}
+  .an-card p{margin:0; font-size:16px; line-height:1.6; font-weight:300;
+    color:var(--muted); text-wrap:pretty}
+  .an-chips{margin:14px 0 0}
+  .summary{font-size:18px; line-height:1.6; font-weight:300; max-width:720px;
+    margin:0 0 4px; text-wrap:pretty}
+  .expand{
+    display:inline-flex; align-items:center; gap:10px; margin:26px 0 0;
+    font-family:"Space Mono",monospace; font-size:11.5px; letter-spacing:.07em;
+    text-transform:uppercase; font-weight:700; cursor:pointer;
+    background:var(--c); color:var(--bg); border:1.5px solid var(--c);
+    border-radius:24px; padding:13px 22px;
+    transition:filter .18s ease, background .18s ease, color .18s ease;
+  }
+  .expand:hover{filter:brightness(1.12)}
+  .gotopage{
+    display:inline-flex; align-items:center; gap:11px; margin:30px 0 0;
+    font-family:"Space Mono",monospace; font-size:11.5px; letter-spacing:.07em;
+    text-transform:uppercase; font-weight:700; text-decoration:none;
+    background:var(--c); color:var(--bg); border:1.5px solid var(--c);
+    border-radius:24px; padding:13px 22px; transition:filter .18s ease;
+  }
+  .gotopage:hover{filter:brightness(1.12); text-decoration:none}
+  .gotopage svg{width:15px; height:15px; flex-shrink:0; transition:transform .22s ease}
+  .gotopage:hover svg{transform:translateX(3px)}
+  .expand svg{width:15px; height:15px; transition:transform .28s ease; flex-shrink:0}
+  .expand[aria-expanded="true"]{background:transparent; color:var(--c)}
+  .expand[aria-expanded="true"] svg{transform:rotate(180deg)}
+  .proj-full{display:grid; grid-template-rows:0fr;
+    transition:grid-template-rows .42s cubic-bezier(.2,.7,.3,1)}
+  .proj-full > div{overflow:hidden; min-height:0}
+  .project[data-open="true"] .proj-full{grid-template-rows:1fr}
+  .proj-full .pa{margin-top:34px}
+  @media (prefers-reduced-motion:reduce){ .proj-full{transition:none} }
   .chip{font-family:"Space Mono",monospace; font-size:10.5px; line-height:1;
     padding:7px 11px; border-radius:20px; white-space:nowrap}
   .chip-m{background:var(--accent-soft); color:var(--c); font-weight:700;
@@ -497,6 +549,8 @@
 <div class="topbar" id="topbar">
   <div class="topbar-in">
     <a class="navlink" href="/v2.html">Work</a>
+    <a class="navlink" href="/v2-publications/">Publications</a>
+    <a class="navlink" href="/v2-about.html" aria-current="page">About</a>
     <button class="theme-toggle" id="themeBtn" type="button" aria-label="Switch to dark mode">
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
