@@ -499,6 +499,9 @@
   .contrib{border-left:3px solid var(--c); padding:4px 0 4px 20px; margin:0 0 30px;
     max-width:660px}
   .contrib p{margin:0; font-size:17px; line-height:1.62; font-weight:300}
+  .prose{max-width:680px}
+  .prose p{margin:0 0 16px; font-size:17px; line-height:1.66; font-weight:300; text-wrap:pretty}
+  .prose p:last-child{margin-bottom:0}
   .what{display:flex; gap:34px; flex-wrap:wrap; margin:0 0 32px}
   .what-col{flex:1 1 290px; min-width:0}
   .what-col h3{font-family:"Space Mono",monospace; font-size:10.5px; letter-spacing:.12em;
@@ -531,7 +534,7 @@
   <div class="hero-dots"></div>
   <div class="wrap" style="position:relative">
     <p class="eyebrow" style="color:var(--c)">Research</p>
-    <h1 style="font-size:clamp(38px,6vw,62px);margin:0 0 14px">Two papers,<br>and what I did in them</h1>
+    <h1 style="font-size:clamp(38px,6vw,62px);margin:0 0 14px">Two peer-reviewed<br>papers</h1>
     <div class="rule"></div>
     <div style="max-width:660px">
       <p class="lede">Both came out of my computer engineering degree, both are machine learning, and on both I built the models, worked out the analytical rationale, and wrote most of the paper.</p>
@@ -560,16 +563,9 @@
       <p>I built the models, developed the analytical rationale and wrote the majority of the paper.</p>
     </div>
 
-    <div class="what">
-      <div class="what-col">
-        <h3>The question</h3>
-        <p>Classifying a brain tumour as benign, malignant or pituitary is a decision currently made with a biopsy, which is invasive, slow and carries its own risk. The question was how close deep learning on MRI has actually got, and whether the gap between published approaches is as large as it looks.</p>
-      </div>
-      <div class="what-col">
-        <h3>What we found</h3>
-        <p>Traditional CNN approaches reported between 85.6% and 96.7% accuracy. Newer experimental architectures reported between 91.4% and 96.4%.</p>
-        <p>The ceiling is roughly the same. The newer approaches raise the floor rather than the best case, which is a more useful finding than a league table of headline numbers, and it is easy to miss if you only read the abstracts.</p>
-      </div>
+    <div class="prose">
+      <p>Classifying a brain tumour as benign, malignant or pituitary is normally settled by biopsy, which is invasive, slow and carries its own risk. We wanted to know how close deep learning on MRI had actually got.</p>
+      <p>Traditional CNN approaches reported between 85.6% and 96.7% accuracy. The newer experimental architectures reported between 91.4% and 96.4%. The ceiling is about the same. What the newer work does is lift the floor, which is easy to miss if you only read the headline numbers.</p>
     </div>
 
     <figure class="figure-note" style="max-width:720px">
@@ -590,9 +586,8 @@
       <figcaption>Reported accuracy ranges across the architectures surveyed. Scale runs 80 to 100%.</figcaption>
     </figure>
 
-    <div class="honest" style="margin-top:26px">
-      <h3>Being straight about what this is</h3>
-      <p>It is a review and comparison, not original architecture work. We did not train a new model and beat a benchmark. What we did was read the field carefully, put the numbers on a common scale, and say what the comparison actually supports.</p>
+    <div class="prose" style="margin-top:26px">
+      <p>It is a review and comparison rather than original architecture work. We did not train a new model and beat a benchmark. We read the field, put the numbers on a common scale, and said what the comparison actually supports.</p>
     </div>
   </article>
 
@@ -612,22 +607,10 @@
       <p>I built the models, developed the analytical rationale and wrote the majority of the paper.</p>
     </div>
 
-    <div class="what">
-      <div class="what-col">
-        <h3>The constraint</h3>
-        <p>Most pose estimation that works well relies on a depth camera or wearable sensors. Both are fine in a lab and useless in the places the technique would actually help, like a physiotherapy clinic or someone's front room.</p>
-        <p>So the system had to run on an ordinary webcam, in real time, on hardware a person already owns.</p>
-      </div>
-      <div class="what-col">
-        <h3>How it works</h3>
-        <p>Built on MediaPipe. Skeletal landmarks are extracted frame by frame, joint angles are derived from those landmarks, and the resulting posture is classified. It runs on live video and recorded footage alike.</p>
-        <p>Where it struggles: partial occlusion, unusual camera angles and low frame rates. We said so in the paper rather than reporting only the conditions that flattered it.</p>
-      </div>
-    </div>
-
-    <div class="honest">
-      <h3>What it is for</h3>
-      <p>Physiotherapy and rehabilitation feedback, sports and form analysis, gesture interfaces, and fall detection. The common thread is that dropping the depth camera is what makes any of them affordable.</p>
+    <div class="prose">
+      <p>Most pose estimation that works well depends on a depth camera or wearable sensors. That is fine in a lab and not much use in a physiotherapy clinic or someone&rsquo;s front room, so we built something that runs on an ordinary webcam, in real time, on hardware people already own.</p>
+      <p>It is built on MediaPipe. Skeletal landmarks are extracted frame by frame, joint angles are derived from those landmarks, and the posture is classified from there. It works on live video and recorded footage alike.</p>
+      <p>It struggles with partial occlusion, unusual camera angles and low frame rates, and we wrote that into the paper rather than reporting only the conditions that flattered it. The uses that follow are physiotherapy and rehabilitation feedback, sports and form analysis, gesture interfaces and fall detection. What makes any of them affordable is dropping the depth camera.</p>
     </div>
   </article>
 
@@ -639,7 +622,7 @@
   <div class="wrap foot-in">
     <div>
       <p class="say">Say hello.</p>
-      <p class="say-sub">Open to Product, Strategy and Analytics roles in Melbourne.</p>
+      <p class="say-sub">Open to Product, Strategy and Analytics roles across Australia.</p>
       <div class="cta-row" style="margin-top:0">
         <a class="cta cta-primary" href="mailto:hello@shaamgupta.com">hello@shaamgupta.com</a>
         <a class="cta cta-secondary" href="https://www.linkedin.com/in/shambhavi-gupta-pm/">LinkedIn</a>
