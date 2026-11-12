@@ -32,7 +32,8 @@
     --k-magenta:#a3356a; --g-magenta:#f8eef3;
     --k-yellow:#8a6412;  --g-yellow:#f7f2e6;
 
-    --mix-green:#4a7a3c; --mix-violet:#6b4a9e;   /* C+Y and C+M */
+    --mix-green:#4a7a3c; --g-green:#eef3ea;
+    --mix-violet:#6b4a9e;   /* C+Y and C+M */
 
     --ok:#2f7a52; --ok-soft:#e8f2ec;
     --alert:#a8392c; --alert-soft:#f8eeec;
@@ -50,7 +51,8 @@
     --k-magenta:#e58ab4; --g-magenta:#1e1318;
     --k-yellow:#d9b455;  --g-yellow:#1c1810;
 
-    --mix-green:#8fc47a; --mix-violet:#b39ae8;   /* C+Y and C+M */
+    --mix-green:#8fc47a; --g-green:#141a12;
+    --mix-violet:#b39ae8;   /* C+Y and C+M */
 
     --ok:#5cc78c; --ok-soft:#12211a;
     --alert:#e07a68; --alert-soft:#241512;
@@ -94,6 +96,8 @@
     transition:border-color .18s ease, color .18s ease;
   }
   .navlink:hover{border-color:var(--ink); color:var(--ink); text-decoration:none}
+  .navlink[aria-current="page"]{border-color:var(--c, var(--accent));
+    color:var(--c, var(--accent)); font-weight:700}
   .topbar-in{gap:10px}
 
   .theme-toggle{
@@ -196,6 +200,7 @@
     clip-path:inset(0 -100vw);
   }
   #work{--c:var(--k-key); --g:var(--g-key)}
+  #analysis{--c:var(--mix-green); --g:var(--g-green)}
   #research{--c:var(--k-cyan); --g:var(--g-cyan)}
   #background{--c:var(--k-magenta); --g:var(--g-magenta)}
   #activity{--c:var(--k-yellow); --g:var(--g-yellow)}
@@ -223,8 +228,8 @@
     background:var(--c); color:var(--bg); padding:6px 11px; border-radius:4px;
     white-space:nowrap;
   }
-  .where{font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.09em;
-    text-transform:uppercase; color:var(--muted)}
+  .where{font-family:"Space Mono",monospace; font-size:12.5px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--ink); font-weight:700}
   h2.proj{font-size:clamp(30px,4.4vw,46px); line-height:1.1; font-weight:300;
     letter-spacing:-.025em; margin:0 0 14px; text-wrap:pretty}
   .myrole{font-family:"Space Mono",monospace; font-size:12px; color:var(--c);
@@ -241,6 +246,13 @@
   .pa p{margin:0; font-size:16.5px; line-height:1.62; font-weight:300; text-wrap:pretty}
   .chips{display:flex; flex-wrap:wrap; gap:7px; margin:26px 0 0}
   .chips-lead{margin:20px 0 0}
+  .an-grid{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:34px 44px}
+  @media (max-width:760px){ .an-grid{grid-template-columns:minmax(0, 1fr)} }
+  .an-card{border-top:2px solid var(--c); padding:18px 0 0}
+  .an-card h3{font-size:19px; font-weight:400; letter-spacing:-.01em; margin:0 0 8px}
+  .an-card p{margin:0; font-size:16px; line-height:1.6; font-weight:300;
+    color:var(--muted); text-wrap:pretty}
+  .an-chips{margin:14px 0 0}
   .summary{font-size:18px; line-height:1.6; font-weight:300; max-width:720px;
     margin:0 0 4px; text-wrap:pretty}
   .expand{
@@ -252,6 +264,16 @@
     transition:filter .18s ease, background .18s ease, color .18s ease;
   }
   .expand:hover{filter:brightness(1.12)}
+  .gotopage{
+    display:inline-flex; align-items:center; gap:11px; margin:30px 0 0;
+    font-family:"Space Mono",monospace; font-size:11.5px; letter-spacing:.07em;
+    text-transform:uppercase; font-weight:700; text-decoration:none;
+    background:var(--c); color:var(--bg); border:1.5px solid var(--c);
+    border-radius:24px; padding:13px 22px; transition:filter .18s ease;
+  }
+  .gotopage:hover{filter:brightness(1.12); text-decoration:none}
+  .gotopage svg{width:15px; height:15px; flex-shrink:0; transition:transform .22s ease}
+  .gotopage:hover svg{transform:translateX(3px)}
   .expand svg{width:15px; height:15px; transition:transform .28s ease; flex-shrink:0}
   .expand[aria-expanded="true"]{background:transparent; color:var(--c)}
   .expand[aria-expanded="true"] svg{transform:rotate(180deg)}
@@ -493,6 +515,9 @@
 
 <div class="topbar" id="topbar">
   <div class="topbar-in">
+    <a class="navlink" href="/" aria-current="page">Work</a>
+    <a class="navlink" href="/publications/">Publications</a>
+    <a class="navlink" href="/about/">About</a>
     <button class="theme-toggle" id="themeBtn" type="button" aria-label="Switch to dark mode">
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
@@ -555,7 +580,7 @@
       <span class="badge">PROJECT 01 OF 03</span>
       <span class="where">My work at Optevo &middot; 2026</span>
     </div>
-    <h2 class="proj">An AI that drafts your tasks but is never allowed to create them</h2>
+    <h2 class="proj">Drafting tasks from documents, without letting the AI create them</h2>
     <p class="myrole">My role: Product Manager, Platform and AI. Product, design, backend, AI, two frontend engineers and two QA, across three timezones.</p>
     <p class="summary">Teams were retyping long briefs and threads into tasks by hand, and losing any trace of why a task existed. I argued against letting the model write straight into the work queue, and drew a line instead: the AI proposes, a person approves, and only then does the platform create anything.</p>
 
@@ -704,7 +729,7 @@
       <span class="badge">PROJECT 03 OF 03</span>
       <span class="where">My work with Team UAS NMIMS &middot; Techfest, IIT Bombay &middot; 2020</span>
     </div>
-    <h2 class="proj">One assumption, and the whole thing changes shape</h2>
+    <h2 class="proj">Soil sensors for wheat farmers who do not own a phone</h2>
     <p class="myrole">My role: shaped the solution, ran the timeline, designed the marketplace flow, wrote the report. The hardware build sat with my teammates.</p>
     <p class="summary">Wheat farmers across four Indian states were making decisions from experience rather than measurement, and a large share of them did not own a phone. Taking the smartphone away is what shaped the design: the screen had to come back onto the device, legible at a glance without reading text.</p>
 
@@ -764,10 +789,62 @@
   </article>
 </section>
 
+<!-- ===================== ANALYSIS ===================== -->
+<section id="analysis" class="wrap">
+  <p class="sec-kicker">02 &ndash; Analysis</p>
+  <h2 class="sec-head">Working with data</h2>
+  <p class="sec-note">The AGL project above is where this met a real commercial decision. The rest is coursework from my Master of Business Analytics, finishing December 2026.</p>
+
+  <div class="an-grid reveal-up">
+    <div class="an-card">
+      <h3>Risk analytics</h3>
+      <p>Fitted GARCH(1,1) volatility models, joined them with a Gaussian copula, and estimated one-month portfolio Value at Risk.</p>
+      <div class="chips an-chips">
+        <span class="chip chip-m">GARCH(1,1)</span>
+        <span class="chip chip-m">Gaussian copula</span>
+        <span class="chip chip-m">Value at Risk</span>
+        <span class="chip chip-m">Mean-variance portfolios</span>
+        <span class="chip chip-m">R</span>
+      </div>
+    </div>
+    <div class="an-card">
+      <h3>Supply chain analytics</h3>
+      <p>Ordering under uncertain demand, including why averaging two candidate distributions&rsquo; optimal quantities is not itself optimal.</p>
+      <div class="chips an-chips">
+        <span class="chip chip-m">Newsvendor model</span>
+        <span class="chip chip-m">Critical ratio</span>
+        <span class="chip chip-m">Service levels</span>
+        <span class="chip chip-m">Scenario analysis</span>
+      </div>
+    </div>
+    <div class="an-card">
+      <h3>Marketing analytics</h3>
+      <p>Whether display advertising causes purchases, measured from a controlled experiment rather than correlations sitting in the log.</p>
+      <div class="chips an-chips">
+        <span class="chip chip-m">Controlled experiment</span>
+        <span class="chip chip-m">Touchpoint attribution</span>
+        <span class="chip chip-m">CLV</span>
+        <span class="chip chip-m">Conjoint analysis</span>
+      </div>
+    </div>
+    <div class="an-card">
+      <h3>Causal analytics</h3>
+      <p>Estimating effects from data nobody randomised, where most of the work is choosing what to control for and then testing that choice.</p>
+      <div class="chips an-chips">
+        <span class="chip chip-m">DAGs</span>
+        <span class="chip chip-m">Propensity score weighting</span>
+        <span class="chip chip-m">Difference-in-differences</span>
+        <span class="chip chip-m">Regression discontinuity</span>
+        <span class="chip chip-m">Instrumental variables</span>
+        <span class="chip chip-m">Matching</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== RESEARCH ===================== -->
 <section id="research" class="wrap">
-  <p class="sec-kicker">02 &ndash; Research</p>
-  <h2 class="sec-head">Two peer-reviewed papers</h2>
+  <p class="sec-kicker">03 &ndash; Publications</p>
   <p class="sec-note">On both I built the models, worked out the analytical rationale, and wrote most of the paper.</p>
 
   <div class="paper" tabindex="0" role="button" aria-expanded="false">
@@ -804,11 +881,16 @@
       <p class="abs">A real-time human pose detection and recognition system built on MediaPipe, identifying body poses from both live and recorded video streams. The paper walks through the pipeline end to end: extracting skeletal landmarks frame by frame, deriving joint angles from those landmarks, and classifying the resulting posture without the depth camera or wearable sensors most comparable systems rely on. We looked at where it holds up and where it does not, including partial occlusion, unusual camera angles and low frame rates, and at the applications that follow from running on an ordinary webcam: physiotherapy and rehabilitation feedback, sports and form analysis, gesture interfaces and fall detection.</p>
     </div></div>
   </div>
+
+  <a class="gotopage" href="/publications/">
+    <span>Read both papers in full</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+  </a>
 </section>
 
 <!-- ===================== BACKGROUND ===================== -->
 <section id="background" class="wrap">
-  <p class="sec-kicker">03 &ndash; Background</p>
+  <p class="sec-kicker">04 &ndash; Background</p>
   <h2 class="sec-head">How I got here</h2>
   <p class="sec-note">Most recent first.</p>
 
@@ -819,6 +901,12 @@
       <span>Product Manager - Platform and AI</span>
     </div></div>
 
+    <div class="tl-row right" style="--bead:var(--k-cyan)"><div class="tl-card">
+      <p class="tl-when">2026</p>
+      <strong>Melbourne Business School</strong>
+      <span>Master of Business Analytics, University of Melbourne. Final module, completing December 2026, alongside full-time work.</span>
+    </div></div>
+
     <div class="tl-row" style="--bead:var(--k-cyan)"><div class="tl-card">
       <p class="tl-when">2025</p>
       <strong>Melbourne Business School</strong>
@@ -827,7 +915,7 @@
 
     <div class="tl-row right photo"><figure class="tl-photo">
       <img src="img/mbs.jpg" alt="Shambhavi Gupta celebrating in front of a whiteboard covered in predictive analytics derivations" loading="lazy">
-      <figcaption>aah! finally dissected the first predictive analytics lecture</figcaption>
+      <figcaption>aah! finally dissected the first predictive analytics lecture. it only got more intense after this, no time left to celebrate with photos</figcaption>
     </figure></div>
 
     <div class="tl-row right" style="--bead:var(--mix-green)"><div class="tl-card">
@@ -863,7 +951,7 @@
 
 <!-- ===================== ACTIVITY ===================== -->
 <section id="activity" class="wrap">
-  <p class="sec-kicker">04 &ndash; Lately</p>
+  <p class="sec-kicker">05 &ndash; Lately</p>
   <h2 class="sec-head">Recent activity</h2>
   <p class="sec-note">What I have been thinking about lately, straight from the source. <a href="https://www.linkedin.com/in/shambhavi-gupta-pm/">All of it on LinkedIn</a>.</p>
   <div class="feed">
@@ -883,7 +971,7 @@
   <div class="wrap foot-in">
     <div>
       <p class="say">Say hello.</p>
-      <p class="say-sub">Open to Product, Strategy and Analytics roles in Melbourne.</p>
+      <p class="say-sub">Open to Product, Strategy and Analytics roles across Australia.</p>
       <div class="cta-row" style="margin-top:0">
         <a class="cta cta-primary" href="mailto:hello@shaamgupta.com">hello@shaamgupta.com</a>
         <a class="cta cta-secondary" href="https://www.linkedin.com/in/shambhavi-gupta-pm/">LinkedIn</a>
