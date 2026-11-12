@@ -245,16 +245,13 @@
   .pa p{margin:0; font-size:16.5px; line-height:1.62; font-weight:300; text-wrap:pretty}
   .chips{display:flex; flex-wrap:wrap; gap:7px; margin:26px 0 0}
   .chips-lead{margin:20px 0 0}
-  .an-grid{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:20px}
+  .an-grid{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:34px 44px}
   @media (max-width:760px){ .an-grid{grid-template-columns:minmax(0, 1fr)} }
-  .an-card{background:var(--surface); border:1px solid var(--line);
-    border-top:3px solid var(--c); border-radius:10px; padding:22px 24px}
-  .an-card h3{font-size:19px; font-weight:400; letter-spacing:-.01em; margin:0 0 4px}
-  .an-when{font-family:"Space Mono",monospace; font-size:10.5px; letter-spacing:.1em;
-    text-transform:uppercase; color:var(--muted); margin:0 0 12px}
-  .an-card p{margin:0; font-size:16px; line-height:1.62; font-weight:300; text-wrap:pretty}
-  .an-models{font-family:"Space Mono",monospace; font-size:10.5px; line-height:1.9;
-    color:var(--c); margin:14px 0 0; letter-spacing:.02em}
+  .an-card{border-top:2px solid var(--c); padding:18px 0 0}
+  .an-card h3{font-size:19px; font-weight:400; letter-spacing:-.01em; margin:0 0 8px}
+  .an-card p{margin:0; font-size:16px; line-height:1.6; font-weight:300;
+    color:var(--muted); text-wrap:pretty}
+  .an-chips{margin:14px 0 0}
   .summary{font-size:18px; line-height:1.6; font-weight:300; max-width:720px;
     margin:0 0 4px; text-wrap:pretty}
   .expand{
@@ -794,35 +791,51 @@
 <section id="analysis" class="wrap">
   <p class="sec-kicker">02 &ndash; Analysis</p>
   <h2 class="sec-head">Working with data</h2>
-  <p class="sec-note">The AGL project above is where this met a real commercial decision. The rest is from my Master of Business Analytics, finishing December 2026.</p>
+  <p class="sec-note">The AGL project above is where this met a real commercial decision. The rest is coursework from my Master of Business Analytics, finishing December 2026.</p>
 
   <div class="an-grid reveal-up">
     <div class="an-card">
       <h3>Risk analytics</h3>
-      <p class="an-when">Melbourne Business School &middot; 2026</p>
-      <p>Fitted GARCH(1,1) models to equity returns, joined them with a Gaussian copula, and used the result to estimate one-month-ahead portfolio Value at Risk. The Gaussian copula is the model the 2008 crisis made famous for understating joint tail risk, which is most of the reason it is worth fitting yourself rather than only reading about.</p>
-      <p class="an-models">GARCH(1,1) &middot; Gaussian copula &middot; Value at Risk &middot; mean-variance portfolios &middot; R</p>
+      <p>Fitted GARCH(1,1) volatility models, joined them with a Gaussian copula, and estimated one-month portfolio Value at Risk.</p>
+      <div class="chips an-chips">
+        <span class="chip chip-m">GARCH(1,1)</span>
+        <span class="chip chip-m">Gaussian copula</span>
+        <span class="chip chip-m">Value at Risk</span>
+        <span class="chip chip-m">Mean-variance portfolios</span>
+        <span class="chip chip-m">R</span>
+      </div>
     </div>
-
     <div class="an-card">
       <h3>Supply chain analytics</h3>
-      <p class="an-when">Melbourne Business School &middot; 2026</p>
-      <p>Ordering under uncertain demand. I built a counterexample showing that the mean and standard deviation of demand do not determine the optimal order, then showed that averaging two candidate distributions&rsquo; optimal quantities is not itself optimal, and worked out why.</p>
-      <p class="an-models">Newsvendor model &middot; critical ratio &middot; service levels &middot; scenario analysis</p>
+      <p>Ordering under uncertain demand, including why averaging two candidate distributions&rsquo; optimal quantities is not itself optimal.</p>
+      <div class="chips an-chips">
+        <span class="chip chip-m">Newsvendor model</span>
+        <span class="chip chip-m">Critical ratio</span>
+        <span class="chip chip-m">Service levels</span>
+        <span class="chip chip-m">Scenario analysis</span>
+      </div>
     </div>
-
     <div class="an-card">
       <h3>Marketing analytics</h3>
-      <p class="an-when">Melbourne Business School &middot; 2026</p>
-      <p>Whether display advertising actually causes purchases, measured from a controlled experiment rather than from correlations sitting in the log. Alongside attribution across touchpoints, customer lifetime value, conjoint and segmentation.</p>
-      <p class="an-models">Controlled experiment &middot; touchpoint attribution &middot; CLV &middot; conjoint analysis</p>
+      <p>Whether display advertising causes purchases, measured from a controlled experiment rather than correlations sitting in the log.</p>
+      <div class="chips an-chips">
+        <span class="chip chip-m">Controlled experiment</span>
+        <span class="chip chip-m">Touchpoint attribution</span>
+        <span class="chip chip-m">CLV</span>
+        <span class="chip chip-m">Conjoint analysis</span>
+      </div>
     </div>
-
     <div class="an-card">
       <h3>Causal analytics</h3>
-      <p class="an-when">Melbourne Business School &middot; 2026</p>
-      <p>Estimating effects from data nobody randomised. Most of the work is deciding what to control for and then testing that decision rather than running the model, and the honest output is usually a range with its assumptions attached.</p>
-      <p class="an-models">DAGs &middot; propensity score weighting &middot; difference-in-differences &middot; regression discontinuity &middot; instrumental variables &middot; matching</p>
+      <p>Estimating effects from data nobody randomised, where most of the work is choosing what to control for and then testing that choice.</p>
+      <div class="chips an-chips">
+        <span class="chip chip-m">DAGs</span>
+        <span class="chip chip-m">Propensity score weighting</span>
+        <span class="chip chip-m">Difference-in-differences</span>
+        <span class="chip chip-m">Regression discontinuity</span>
+        <span class="chip chip-m">Instrumental variables</span>
+        <span class="chip chip-m">Matching</span>
+      </div>
     </div>
   </div>
 </section>
